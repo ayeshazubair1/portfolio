@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Retail Shrinkage &amp; Inventory Optimization Analysis — Bibitor LLC</title>
+  <style>
+    /* 1. Import the actual fonts from Google */
+    @import url("https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Serif+Text:ital@0;1&family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Quicksand:wght@300..700&display=swap");
+
+    /* 2. Define the variables so the browser knows what --font-1 is */
+    :root {
+      --font-1            : "Public Sans", sans-serif;
+      --font-2            : "DM Serif Display", serif;
+      --font-3            : "Quicksand", sans-serif; 
+      --color-1           : #6db5ca;
+     --color-gray-2       : #d0d0d0; /*big heading text */
+     --color-gray-4       : #a1a1a2; /*about & work text */
+     --color-gray-6       : #727373; /*contents & code block*/
+     --color-gray-12      : #101112;  /* code blocks */
+     --color-gray-7       : #5b5b5c; /* copyright & content boarder & header footer lines */
+      --color-black        : #000000;
+      --space             : 1.6rem;
+      --vspace-1          : var(--space);
+      --vspace-1_5         : calc(1.5 * var(--space));
+    }
+       /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #000000;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 55em;
+      padding: 0 50px 50px 50px; /* Removed top padding for the sticky header */
+      
+      /* Matching your exact homepage fonts and colors */
+      font-family: var(--font-1); /* Public Sans */
+      font-size: 1.06rem;
+      line-height: var(--vspace-1); /* Using your 32px vertical rhythm */
+      color: var(--color-gray-4); /* Your #515151 about text color */
+      
+      background-color: var(--color-black);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    p {
+      margin-bottom: var(--vspace-1); /* Consistent vertical spacing */
+    }
+
+    /* New Header using your exact color palette */
+    /* Clean Header Styling */
+   .project-header {
+      background-color: #000000; 
+      padding: 1.2rem 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 0 15px rgba(109, 181, 202, 0.4); /* Soft glow using your color */
+      margin-bottom: var(--vspace-1_5);
+      
+      width: 100vw; 
+      margin-left: calc(-50vw + 50%);
+      box-sizing: border-box;
+      
+      display: flex;
+      align-items: center;
+      /* FIX: This pushes the items to the opposite ends */
+      justify-content: space-between; 
+    }
+
+    /* Make sure the text color stays dark against the white background */
+    .back-btn {
+      text-decoration: none;
+      font-family: var(--font-3);
+      color: var(--color-1) !important; /* Forces the blue color */     
+      font-weight: 700;
+      font-size: 0.8rem;
+      display: flex;
+      align-items: center;
+      text-transform: uppercase;
+      letter-spacing: .2rem;
+      transition: all 0.3s ease-in-out; 
+    }
+    .back-btn:hover {
+    color: var(--color-gray-6) !important; /* Changes to white on hover */
+    text-shadow: 0 0 10px var(--color-1); /* Adds a blue glow effect */
+    transform: translateX(-2px); /* Subtle "push" to the left */
+    opacity: 0.9;
+}
+/* Style for the "Detailed Code" label */
+    .github-container {
+      display: flex;
+      align-items: center;
+      gap: 10px; /* Space between text and badge */
+    }
+    /* Arrow icon spacing */
+    .back-btn i {
+      margin-right: 12px;
+      font-size: 1.1rem;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: var(--color-1);
+    }
+    a:visited {
+      color: var(--color-1);
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+   h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+      font-family: var(--font-1);
+      font-weight: 550; /* Increased from 300 to make it bolder/darker */
+      color: var(--color-gray-2); /* Changed from dim grey to solid black */
+      line-height: 1.3;
+      margin-bottom: 0.5em;
+    }
+    h1 {
+      margin-bottom: 0.8em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 4px solid var(--color-1);
+      box-shadow: 0 0 15px rgba(109, 181, 202, 0.4); /* Soft glow using your color */
+      color: var(--color-gray-4);
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+      font-size: 0.9rem;    /* Makes the font smaller */
+      padding: 10px 15px;   /* Shrinks the block size */
+      border-radius: 4px;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+      line-height: 1.4;     /* Keeps the code lines compact */
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid var(--color-gray-7);
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid var(--color-gray-7);
+      border-bottom: 1px solid var(--color-gray-7);
+    }
+    th {
+      border-top: 1px solid var(--color-gray-7);
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+
+ /* ===================================================================
+  * # FOOTER
+  * ------------------------------------------------------------------- */
+ .s-footer {
+     margin-top     : auto;
+     padding-top    : var(--vspace-1);
+     padding-bottom : var(--vspace-3);
+     color          : var(--color-gray-7);
+ }
+ /* ------------------------------------------------------------------- 
+  * ## copyright
+  * ------------------------------------------------------------------- */
+.s-footer {
+    background-color: #000000;
+    text-align: center;
+}
+
+.ss-copyright {
+    font-family: var(--font-3); /* Quicksand */
+    font-size: 0.75rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.15rem;
+    color: var(--color-gray-7); /* Light grey so it's subtle, not distracting */
+}
+ 
+ .ss-copyright span {
+     font-size : var(--text-sm);
+     display   : inline-block;
+ }
+ 
+ .ss-copyright span::after {
+     content : "|";
+     display : inline-block;
+     padding : 0 .8rem 0 2rem;
+     color   : var(--color-gray-7);
+ }
+ 
+ .ss-copyright span:last-child::after {
+     display : none;
+ }
+/* --- TABLE OF CONTENTS --- */
+   
+    /* 1. The Toggle Button */
+    #toc-toggle {
+        position: fixed;
+        right: 1.5rem;
+        top: 155px;
+        z-index: 1001;
+        background: transparent;
+        border: none;
+        color: var(--color-1); 
+        font-size: 1.3rem;
+        cursor: pointer;
+        transition: transform 0.3s ease, color 0.3s ease;
+    }
+
+    #toc-toggle:hover {
+        transform: scale(1.2);
+        color: var(--color-gray-7);
+    }
+
+    /* 2. The Menu Container */
+    .toc {
+        position: fixed;
+        right: 0.1rem;
+        top: 155px; 
+        width: 140px;
+        padding: 0.5rem 1rem;
+        background-color: transparent;
+        border-left: 1px solid var(--color-gray-7);
+        font-family: var(--font-3); 
+        z-index: 900;
+        transition: all 0.4s ease; 
+    }
+
+    /* 3. The Hidden State Logic */
+    .is-hidden {
+        opacity: 0 !important;
+        visibility: hidden !important;
+        pointer-events: none !important;
+        transform: translateX(20px);
+    }
+
+    /* 4. Inside the Menu Typography */
+    .toc h3 {
+        font-size: 0.70rem;
+        text-transform: uppercase;
+        letter-spacing: 0.1rem;
+        margin-bottom: 1rem;
+        color: var(--color-1);
+        margin-top: 0;
+    }
+
+    .toc ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .toc ul li {
+        margin-bottom: 0.7rem;
+        line-height: 1.2;
+    }
+
+    .toc ul li a {
+        text-decoration: none;
+        font-size: 0.85rem;
+        color: var(--color-gray-7);
+        /* Line added below for smooth movement */
+        transition: all 0.3s ease; 
+        display: inline-block; /* Required for the nudge effect to work */
+    }
+
+    .toc ul li a:hover {
+        color: var(--color-1);
+        /* Line added below for the "little effect" nudge */
+        transform: translateX(4px); 
+    }
+
+    /* 5. Mobile & Jump Logic */
+    @media (max-width: 1200px) {
+        .toc, #toc-toggle { display: none; }
+    }
+
+    h1, h2, h3 {
+        scroll-margin-top: 100px; 
+    }
+    /* ------------------------------------------------------------------- */
+ 
+</style>
+</head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<body>
+<header class="project-header">
+    <a href="../index.html#works" class="back-btn">
+        <i class="fa-solid fa-arrow-left"></i> Go Back
+    </a>
+
+    <div class="github-container">
+        <a href="https://github.com/ayeshazubair1/retail-shrinkage-optimization" target="_blank" class="github-badge-link">
+            <img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub" />
+        </a>
+    </div>
+</header>
+<!-- TOC -->
+<div id="toc-container">
+    <button id="toc-toggle" title="Toggle Table of Contents">
+        <i class="fa-solid fa-ellipsis-vertical open-icon"></i>
+        <i class="fa-solid fa-xmark close-icon" style="display: none;"></i>
+    </button>
+    <nav class="toc" id="toc-menu">
+        <h3>Contents</h3>
+        <ul>
+            <li><a href="#business-context">Context</a></li>
+            <li><a href="#executive-summary">Summary</a></li>
+            <li><a href="#key-findings-business-implications">Findings</a></li>
+            <li><a href="#recommended-action-plan">Action Plan</a></li>
+            <li><a href="#methodology-analytical-approach">Methodology</a></li>
+            <li><a href="#operational-risk-performance-indicators">KPIs</a></li>
+            <li><a href="#tech-stack-data-architecture">Tech Stack</a></li>
+        </ul>
+    </nav>
+</div> <!-- end TOC -->
+<h1
+id="retail-shrinkage-inventory-optimization-analysis-bibitor-llc">Retail
+Shrinkage &amp; Inventory Optimization Analysis — Bibitor LLC</h1> <hr>
+
+<h2 id="business-context">Business Context</h2>
+<p>Bibitor LLC is a retail wine and spirits company operating ~80 stores
+across the fictional state of Lincoln. Annual sales range between
+$420–450M, with COGS around $300–350M. Despite strong revenue,
+store-level shrinkage (unexplained inventory loss) was increasing,
+reducing profit margins and creating stock imbalances: some stores were
+overstocked, while others frequently ran out of top-selling
+products.</p>
+
+<blockquote>
+<p><strong>The Challenge:</strong> Identify where inventory is
+disappearing, what’s tying up capital, and which operational failures
+are driving both issues.</p>
+</blockquote>
+
+<h2 id="executive-summary">🎯 Executive Summary</h2>
+<p>This analysis identifies two major financial risks impacting Bibitor LLC:</p>
+<ul>
+    <li><b>$199K</b> in direct annual shrinkage losses</li>
+    <li><b>$28M</b> in capital tied up in slow-moving inventory</li>
+</ul>
+<p>Key findings show that 65% of all shrinkage is localized in just four
+high-risk stores (notably Store 77 and Store 25), which also suffer from
+the highest levels of excess inventory.<br> Additionally, systemic stock
+imbalances are being worsened by significant vendor fulfillment
+inaccuracies, including a 35K unit delivery variance from William Grant
+&amp; Sons Inc.<br> By focusing audits on high-risk locations and enforcing
+vendor accountability, Bibitor LLC can release millions in trapped
+capital and stabilize profit margins.</p>
+
+<h2 id="key-findings-business-implications">📊 Key Findings &amp;
+Business Implications</h2>
+<h3
+id="shrinkage-is-highly-concentrated-four-stores-drive-nearly-two-thirds-of-total-loss">1.
+Shrinkage Is Highly Concentrated: Four Stores Drive Nearly Two-Thirds of
+Total Loss</h3>
+<p>Inventory shrinkage is highly concentrated rather than evenly
+distributed across the chain. Four locations—Stores 77, 25, 63, and
+47—account for approximately <strong>$129K</strong>, or 65%, of the
+total $200K annual revenue loss. These stores represent a combined $94K
+in direct cost exposure and an additional $35K in lost margin,
+indicating that shrinkage impact extends well beyond inventory
+write-offs. Store 77 presents the highest financial risk, with over $53K
+in exposure, likely amplified by its operational complexity and large
+SKU assortment (7,344 SKUs).</p>
+<p><strong>Business Implication:</strong> Shrinkage is concentrated rather than systemic. 
+  Because unrealized margin exceeds direct write-offs, the true financial impact is understated in accounting records. 
+  The concentration allows leadership to focus audits and controls on a small set of high-impact stores instead of 
+  applying broad, inefficient interventions.</p>
+<p><img src="../images/bibitor_charts/01_store_shrinkage.png" width="400" alt="Vertical bar chart showing financial loss from shrinkage"></p>
+
+<h3
+id="operational-leakage-dominates-low-value-items-drive-88-of-shrinkage-value">2.
+Operational Leakage Dominates: Low-Value Items Drive 88% of Shrinkage
+Value</h3>
+<p>While high-value products show a slightly higher average loss rate,
+low-value items account for <strong>88%</strong> of total shrinkage
+value ($233K of $264K). Shrinkage is therefore driven primarily by
+high-volume, low-priced SKUs rather than concentrated losses in premium
+products.</p>
+<p><strong>Business Implication:</strong> The dominance of low-value
+items in total shrinkage suggests that operational factors—such as
+receiving errors, miscounts, breakage, and inventory recording gaps—are
+likely major contributors to loss. Interventions focused solely on
+high-value theft prevention would address only a small portion of total
+exposure; broader process controls are required to materially reduce
+shrinkage.</p>
+<p><img src="../images/bibitor_charts/02_value_tier.png" width="400" alt="Vertical bar chart showing monetary loss by product category"></p>
+
+<h3
+id="capital-inefficiency-structural-risk">3.
+Capital Inefficiency Represents the Largest Structural Risk: $28M Locked in Slow-Moving Inventory</h3>
+<p>Across the network, 8,198 distinct SKUs exceed 90 days of supply,
+tying up approximately <strong>$28M</strong> in working capital
+(calculated as the sum of inventory value across all affected SKUs).
+Excess inventory is highly concentrated, with four stores (77, 26, 49,
+and 25) alone accounting for approximately $5.5M in tied-up capital.
+Store 77 is the single largest contributor, holding nearly $2M in
+slow-moving stock. Liquidity risk is most severe in Stores 64, 77, 40,
+and 49, where inventory-weighted average days of supply exceed 700+
+days, indicating prolonged stagnation.</p>
+<p><strong>Business Implication:</strong> Inventory inefficiency poses a larger structural risk than shrinkage. 
+  At an 8% cost of capital, excess stock generates ~$2.24M in annual opportunity cost, while prolonged holding periods 
+  increase damage and obsolescence risk. Unlike shrinkage, this exposure compounds over time.</p>
+<p><img src="../images/bibitor_charts/03_excess_inventory.png" width="400" alt="Horizontal bar chart showing stores with most capital tied up in excess inventory"></p>
+<h3
+id="vendor-delivery-inaccuracies-create-systemic-stock-imbalances">4.
+Vendor Delivery Inaccuracies Create Systemic Stock Imbalances</h3>
+<p>Inventory variance is concentrated among specific vendors rather than
+occurring randomly. William Grant &amp; Sons Inc shows cumulative
+under-deliveries exceeding 35,000 units, while Alisa Carr Beverages
+over-delivered by approximately 65% relative to ordered quantities.
+These deviations are consistent across multiple products, indicating
+persistent fulfillment inaccuracies.</p>
+<p><strong>Business Implication:</strong> Vendor delivery reliability is a direct driver of inventory imbalance. 
+  Under-delivery creates stockouts and lost sales, while over-delivery increases capital lock-up. Because variance is 
+  concentrated among a small number of suppliers, this represents a manageable counterparty risk rather than a systemic 
+  supply-chain failure.</p>
+<p><img src="../images/bibitor_charts/04_vendor_variance.png" width="450" alt="Diverging bar chart showing vendor fulfillment accuracy"></p>
+<h3
+id="geographic-patterns-reveal-distinct-operational-failure-modes">5.
+Geographic Patterns Reveal Distinct Operational Failure Modes</h3>
+<p>Losses cluster geographically. Mountmend (Store 77) and Paentmarwy
+(Store 25) together account for over <strong>$64K</strong> in shrinkage.
+In contrast, locations such as Eanverness (Store 49) and Pitmerden
+(Store 40) exhibit significant overstock relative to recorded
+deliveries.</p>
+<p><strong>Business Implication:</strong> Operational failures are not
+uniform across the network. Loss-heavy cities indicate breakdowns in
+inventory control or security, while overstock-heavy locations suggest
+receiving and recording failures. This heterogeneity invalidates
+one-size-fits-all solutions and highlights the need for differentiated
+operational diagnosis.</p>
+<p><img src="../images/bibitor_charts/05_location_risk.png" width="450" alt="Diverging bar chart showing financial discrepancies"></p>
+
+<h2 id="recommended-action-plan">🚀 Recommended Action Plan</h2>
+<h3 id="stabilize-inventory-where-risk-concentrates">1. Stabilize
+Inventory Where Risk Concentrates</h3>
+<h4 id="phase-1.1---high-risk-stores-immediate-focus">Phase 1.1 -
+High-Risk Stores (Immediate Focus)</h4>
+<p><strong>Target Stores:</strong> 77, 25, 26, 49<br><br>
+<strong>Rationale:</strong> These locations are repeatedly flagged
+across shrinkage exposure, excess days of supply, and overstock
+indicators, signaling compounding inventory risk rather than isolated
+variance. Addressing these stores first delivers the highest financial
+return by reducing margin erosion, releasing tied-up capital, and
+preventing further operational leakage.</p>
+<p><strong>🔍 Actions &amp; Execution:</strong></p>
+<ul>
+    <li style="margin-bottom: 10px;">Perform focused inventory reconciliations to identify root discrepancies</li>
+    <li style="margin-bottom: 10px;">Tighten receiving and stock movement controls, particularly for high-volume SKUs</li>
+    <li style="margin-bottom: 10px;">Introduce short-cycle counts for slow-moving and variance-prone items</li>
+    <li style="margin-bottom: 10px;">Temporarily restrict replenishment for SKUs exceeding 90 days of supply</li>
+</ul>
+<p><strong>✅ Success Metrics:</strong></p>
+<ul>
+    <li>Reduction in shrinkage rate within subsequent inventory cycles</li>
+    <li>Decline in inventory average days of supply</li>
+    <li>Measurable reduction in excess inventory value</li>
+</ul>
+
+<h4 id="phase-1.2---moderate-risk-stores-targeted-controls">Phase 1.2 -
+Moderate-Risk Stores (Targeted Controls)</h4>
+<p><strong>Target Stores:</strong> 63, 47, 50, 45<br><br>
+<strong>Rationale:</strong> These stores exhibit material risk in a
+single dimension—either elevated shrinkage or excess inventory
+volume—but have not yet developed compounding failure patterns. Early,
+targeted controls reduce the likelihood of escalation into high-risk
+profiles observed in Phase 1 locations.</p>
+<p><strong>🔍 Actions &amp; Execution:</strong></p>
+<ul>
+    <li style="margin-bottom: 10px;">Apply standardized inventory controls validated in Phase 1</li>
+    <li style="margin-bottom: 10px;">Monitor shrinkage and days-of-supply trends on a rolling basis</li>
+    <li style="margin-bottom: 10px;">Escalate stores showing worsening indicators to Phase 1 protocols</li>
+</ul>
+<p><strong>✅ Success Metrics:</strong></p>
+<ul>
+    <li style="margin-bottom: 10px;">Stabilization of shrinkage and inventory levels</li>
+    <li style="margin-bottom: 10px;">No progression into multi-risk categories over time</li>
+</ul>
+
+<h3
+id="reduce-shrinkage-by-fixing-process-leakage-in-low-value-products">2.
+Reduce Shrinkage by Fixing Process Leakage in Low-Value Products</h3>
+<p><strong>Target Category:</strong> Low-value products<br><br>
+<strong>Rationale:</strong> Low-value products contribute approximately
+<strong>$233K</strong> in shrinkage value and account for the highest
+number of units lost. While high-value items show a marginally higher
+loss rate, low-value products represent the dominant driver of total
+shrinkage due to their scale.</p>
+<p><strong>🔍 Actions &amp; Execution:</strong></p>
+<ul>
+    <li>Strengthen receiving and quantity verification for low-value items</li>
+    <li>Increase cycle count frequency for discrepancy-prone SKUs</li>
+    <li>Standardize handling and shelf-replenishment practices to reduce breakage and misplacement</li>
+    <li>Monitor recurring SKU-level discrepancies to identify process gaps</li>
+</ul>
+<p><strong>✅ Success Metrics:</strong></p>
+<ul>
+    <li>Reduction in total shrinkage value from low-value products</li>
+    <li>Improved inventory accuracy for low-value SKUs</li>
+    <li>Fewer recurring discrepancies across inventory cycles</li>
+</ul>
+<h3
+id="improve-inventory-accuracy-by-enforcing-vendor-delivery-accountability">3.
+Improve Inventory Accuracy by Enforcing Vendor Delivery
+Accountability</h3>
+<p><strong>Target Area:</strong> Vendors with persistent over-delivery
+and under-delivery patterns<br><br>
+<strong>Rationale:</strong> Inventory
+variance is concentrated among a small number of vendors rather than
+occurring randomly across the supplier base. Persistent under-delivery
+contributes to stockouts and lost sales, while over-delivery increases
+excess inventory, capital lock-up, and downstream shrinkage risk.
+Addressing these vendors directly offers a high-leverage opportunity to
+stabilize inventory accuracy without broad supply-chain disruption.</p>
+<p><strong>🔍 Actions &amp; Execution:</strong></p>
+<ul>
+    <li>Introduce vendor-level delivery accuracy tracking using ordered vs received quantities</li>
+    <li>Flag vendors with repeated deviations beyond acceptable tolerance thresholds</li>
+    <li>Require enhanced receiving verification for high-variance vendors</li>
+    <li>Use variance trends to inform corrective actions, contract discussions, or order adjustments</li>
+</ul>
+<p><strong>✅ Success Metrics:</strong></p>
+<ul>
+    <li>Reduction in delivery variance rates for targeted vendors</li>
+    <li>Fewer stock discrepancies linked to vendor receipts</li>
+    <li>Improved alignment between ordered and received quantities over time</li>
+</ul>
+
+<h2 id="methodology-analytical-approach">Methodology &amp; Analytical
+Approach</h2>
+<ol>
+    <li>
+        <strong>Performance Optimization:</strong> To handle high-volume tables (12M+ sales records), I implemented Materialized Views and B-Tree Indexing on primary and foreign keys. This strategy significantly reduced query execution time by pre-aggregating core metrics and improving data retrieval efficiency.
+    </li>
+    <li>
+        <strong>Code Modularization:</strong> Utilized CTEs (Common Table Expressions) to ensure the analytical pipeline is modular, readable, and maintainable. This approach allowed for complex multi-step calculations to be audited easily.
+    </li>
+    <li>
+        <strong>Weighted Valuation:</strong> Preferred Weighted Averages over naive averages for sale and purchase prices. This ensures that high-volume transactions carry appropriate mathematical weight, preventing low-volume price outliers from skewing the final financial results.
+    </li>
+    <li>
+        <strong>Core Shrinkage Framework:</strong> Developed a standardized three-pillar calculation for every business question to ensure consistency:
+        <ul style="list-style-type: disc; margin-left: 20px;">
+            <li>Unit Loss: Physical discrepancy in inventory.</li>
+            <li>Monetary Impact: Total dollar-value exposure.</li>
+            <li>Percentage Impact: Loss rate relative to total volume or value.</li>
+        </ul>
+    </li>
+    <li>
+        <strong>Data-Driven Thresholding:</strong> In the absence of predefined industry benchmarks, I used the PERCENTILE_CONT function to perform a deep distribution analysis of the data.
+    </li>
+    <li>
+        <strong>Risk Categorization:</strong> Final segmentation (e.g., Critical vs. High-Impact) was derived by testing multiple percentiles (P75, P91, P96). This allowed me to identify the “elbow point”—the specific threshold where financial risk and exposure significantly accelerate.
+    </li>
+</ol>
+
+<h2 id="operational-risk-performance-indicators">Operational Risk &amp;
+Performance Indicators</h2>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 22%" />
+<col style="width: 52%" />
+</colgroup>
+<thead>
+<tr>
+<th style="text-align: left;">Metric</th>
+<th style="text-align: left;">Value</th>
+<th style="text-align: left;">Business Context</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Total Shrinkage Loss</strong></td>
+<td style="text-align: left;">$199K</td>
+<td style="text-align: left;">Annual revenue impact across 41
+stores</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Capital Trapped</strong></td>
+<td style="text-align: left;">$28M</td>
+<td style="text-align: left;">Total value of inventory exceeding the
+90-day supply threshold</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Worst Performing
+Store</strong></td>
+<td style="text-align: left;">Store 77</td>
+<td style="text-align: left;">Accounts for $53K in loss; ranks 1st in
+shrinkage despite 6th in sales</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Top Vendor Issue</strong></td>
+<td style="text-align: left;">-14.44%</td>
+<td style="text-align: left;">William Grant &amp; Sons Inc
+under-delivered by 35.9K units</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Loss Concentration</strong></td>
+<td style="text-align: left;">65%</td>
+<td style="text-align: left;">$129K of total losses are localized within
+just 4 key stores</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Product Pattern</strong></td>
+<td style="text-align: left;">88%</td>
+<td style="text-align: left;">Loss is dominated by low-value items,
+suggesting process errors over theft.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Why These Metrics Matter:</strong> They bridge the gap
+between operational data (units lost) and business outcomes (profit
+impact), making insights actionable for decision-makers.</p>
+<h2 id="tech-stack-data-architecture">🛠️ Tech Stack &amp; Data
+Architecture</h2>
+<p><strong>Tools:</strong> PostgreSQL • DBeaver • Tableau<br />
+<strong>Dataset:</strong> 15M+ records - <a
+href="https://www.hubae.org/datvironment/bibitor/" target="_blank">Hub of analytics education</a><br />
+<strong>Architecture:</strong> Raw → Clean → Gold (medallion approach)<br>
+<strong>Data Flow:</strong></p>
+<pre style="background-color: var(--color-gray-12); padding: 15px; border-radius: 5px;   box-shadow: 0 0 15px rgba(109, 181, 202, 0.4); /* Soft glow using your color */ font-family: monospace; line-height: 1.5; overflow-x: auto;">
+Raw CSV Files (6 tables: stores, products, vendors, inventory, sales, purchases)
+    ↓
+Clean Layer (Views: deduplication, validation, type casting)
+    ↓
+Gold Schema (Star schema with materialized aggregations)
+</pre>
+
+<p><strong>Why This Architecture:</strong> The Gold schema ensures
+consistent business definitions across all downstream analysis—mimicking
+the semantic layer approach used by enterprise retail analytics teams.<br>
+Detailed technical documentation <a
+href="https://github.com/ayeshazubair1/retail-shrinkage-optimization/blob/main/data_catalog.md" target="_blank">here.</a></p>
+
+<h2 id="future-analysis-opportunities">Future Analysis
+Opportunities</h2>
+<ol>
+    <li>
+        <strong>Incorporate monthly sales trends:</strong> Calculate dynamic safety stock levels, moving away from a fixed 90-day threshold to better manage seasonal demand spikes and holiday volatility.
+    </li>
+    <li>
+        <strong>Integrate store-level labor hours and employee turnover data:</strong> Determine if high shrinkage rates in specific locations correlate with staffing shortages or training gaps in inventory receiving protocols.
+    </li>
+    <li>
+        <strong>Investigate the root cause of the 35K-unit vendor discrepancy:</strong> Review delivery logs and warehouse records to identify if the missing stock is due to paperwork errors, shipping issues, or physical loss.
+    </li>
+</ol>
+<h2 id="limitations-assumptions">⚠️ Limitations &amp; Assumptions</h2>
+<ol>
+    <li>
+        <strong>Synthetic Dataset:</strong> As this project utilizes a fictional dataset, there is no specific operational details such as store layouts, staffing levels, cycle-count frequencies or security logs that would be needed for a root-cause analysis.
+    </li>
+    <li>
+        <strong>Temporal Granularity:</strong> Inventory data was limited to annual snapshots (Start-of-Year and End-of-Year). This constraint prevented the analysis of month-to-month shrinkage trends, quarterly fluctuations, or specific “out-of-stock” periods.
+    </li>
+    <li>
+        <strong>Standardized Sales Velocity:</strong> The Days of Supply (DOS) calculation assumes a steady sales pace throughout the year. This is a high-level benchmark and does not account for holiday spikes or seasonality, which would change the speed of sales in a real business environment.
+    </li>
+    <li>
+        <strong>Benchmark Proxies:</strong> The 90-day supply threshold and specific percentile benchmarks were established through internal data distribution analysis. These serve as logical proxies for business risk in the absence of internal company-defined KPI granularity.
+    </li>
+    <li>
+        <strong>Data Scope:</strong> The analysis focuses exclusively on products with recorded sales and inventory movement; items with zero activity throughout the period were excluded to maintain the integrity of the “burn rate” calculations.
+    </li>
+</ol>
+<h2 id="project-structure">📁 Project Structure</h2>
+<pre style="background-color: var(--color-gray-12); padding: 15px; border-radius: 5px;   box-shadow: 0 0 15px rgba(109, 181, 202, 0.4); /* Soft glow using your color */ font-family: monospace; line-height: 1.5; overflow-x: auto;">
+bibitor_llc/
+├── License.txt
+├── README.md
+├── bibitor_viz.twb
+├── data_catalog.md
+├── docs/
+│   ├── 01_schema_layers.svg
+│   ├── 02_ERD_bibitor_llc.svg
+│   ├── images/
+│   └── results/
+└── sql/
+    ├── 01_ddl/
+    ├── 02_load/
+    ├── 03_test/
+    ├── 04_analytics/
+    └── db_init.sql
+</pre>
+<h3 id="license">📄 License</h3>
+<p>This project is licensed under the MIT License. See the <a
+href="https://github.com/ayeshazubair1/retail-shrinkage-optimization/blob/main/License.txt" target="_blank">License</a> file for details.</p><br><hr>
+
+<footer class="s-footer">
+
+            <div class="row">
+                <div class="column ss-copyright">
+                    <span>© 2026 AYESHA ZUBAIR</span> 
+                </div>
+            </div>
+        </footer> <!-- end s-footer -->
+
+        <!-- TOC toggle-->
+<script>
+    // Wait for the DOM to be fully loaded
+    document.addEventListener('DOMContentLoaded', function() {
+        const tocToggle = document.getElementById('toc-toggle');
+        const tocMenu = document.getElementById('toc-menu');
+        const openIcon = document.querySelector('.open-icon');
+        const closeIcon = document.querySelector('.close-icon');
+
+        tocToggle.addEventListener('click', function() {
+            // Toggle the hidden class
+            const isNowHidden = tocMenu.classList.toggle('is-hidden');
+            
+            // Swap icons based on state
+            if (isNowHidden) {
+                openIcon.style.display = 'inline-block';
+                closeIcon.style.display = 'none';
+            } else {
+                openIcon.style.display = 'none';
+                closeIcon.style.display = 'inline-block';
+            }
+        });
+    });
+</script>        <!-- end TOC toggle-->
+</body>
+</html>
