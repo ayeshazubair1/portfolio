@@ -1,17 +1,14 @@
-# 🌐 Portfolio Website
+## 🌐 Portfolio Website
 
-Personal portfolio website showcasing my Data Analytics projects.   
+### Overview
+Personal [portfolio website](https://ayeshazubair1.github.io/portfolio/) showcasing my data analytics project documentation designed for non-technical audiences, with links to the corresponding GitHub repositories containing the source code and datasets.
 
-#### Live Website
- https://ayeshazubair1.github.io/portfolio/
+### Technologies Used
+- HTML
+- CSS
+- JavaScript
 
-#### Overview
-This site presents project documentation designed for non-technical audiences, with links to the corresponding GitHub repositories for the source code and datasets.   
-
-#### Technologies Used
-- HTML  
-- CSS  
-- JavaScript  
 ---
-#### Template Credit
+
+### Template Credit
 Design template originally sourced from [StyleShout](https://styleshout.com/) and customized.
