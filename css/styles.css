@@ -87,13 +87,13 @@
      --color-gray-1  : #e8e8e8;
      --color-white   : #ffffff;
  
-     /* preloader        (modified) */
+     /* preloader         */
       --color-preloader-bg: #ffffff; 
       --color-loader: #000000; /* black spinner */
       --color-loader-light: rgba(158, 157, 155, 0.2); /* Light gray overlay */
  }
 
-    /* buttons      (modified) */
+    /* buttons       */
       .contact-btn {
          font-weight: bold;  /* Bold text */
          font-size: 1.5rem;  /* Increase text size */
@@ -970,7 +970,7 @@ p, ul, ol, img { margin-bottom: var(--vspace-1); }
  /* ------------------------------------------------------------------- 
   * ## change autocomplete styles in Chrome
   * ------------------------------------------------------------------- */
- /* --- Minimalist Resume Button --- */
+ /* --- Resume Button --- */
 .download-btn {
     display: inline-block;
     font-family: var(--font-3); 
@@ -1161,7 +1161,7 @@ p, ul, ol, img { margin-bottom: var(--vspace-1); }
     box-shadow: 0 0 15px rgba(109, 181, 202, 0.4); /* Soft glow using your color */
  }
  /* --------------------------------------------------------------------
-  * ## main navigation       (modified)
+  * ## main navigation       
   * -------------------------------------------------------------------- */
  .mobile-home-link a,
  .main-nav a {
@@ -1534,7 +1534,7 @@ p, ul, ol, img { margin-bottom: var(--vspace-1); }
  }
  
  /* --------------------------------------------------------------------
-  * ## works portfolio       (modified)
+  * ## works
   * -------------------------------------------------------------------- */
  .folio-list {
      --item-min-height : var(--vspace-4_5);
@@ -1709,7 +1709,7 @@ p, ul, ol, img { margin-bottom: var(--vspace-1); }
 #skills .grid-list-items {
     display: flex;
     flex-wrap: wrap;
-    gap: 15px; 
+    gap: 17px; 
 }
 
 #skills .grid-list-items__item {
@@ -1831,12 +1831,12 @@ p, ul, ol, img { margin-bottom: var(--vspace-1); }
   * # CONTACT
   * ------------------------------------------------------------------- */
  
- .contact-top {
+ /*.contact-top {
      padding-top : var(--vspace-5);
      border-top  : 0.5px solid #626262;
      width: 80%;   
      margin: 0 auto; 
- }
+ } */
  
  /*feel free to reach line */
  .contact-top .h1 {
@@ -1923,7 +1923,7 @@ p, ul, ol, img { margin-bottom: var(--vspace-1); }
      }
  }
  /* ===================================================================
-  * # FOOTER - Clean & Minimalist
+  * # FOOTER
   * ------------------------------------------------------------------- */
  .s-footer {
     background-color: #000000 !important;
