@@ -380,4 +380,8 @@
     h1, h2, h3 {
         scroll-margin-top: 100px; 
     }
+    .para-gap {
+    display: block;
+    height: 10px; /* Adjust gaps btw paragraphs */
+    content: "";
     /* ------------------------------------------------------------------- */
