@@ -2,7 +2,6 @@
 
 Personal <a href="https://ayeshazubair1.github.io/portfolio/" target="_blank">portfolio website</a> showcasing my data analytics project documentation designed for non-technical audiences, with links to the corresponding GitHub repositories containing the source code and datasets.
 
-#### Technologies Used
 - HTML
 - CSS
 - JavaScript
