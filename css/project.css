@@ -1,7 +1,6 @@
     /* 1. Import the actual fonts from Google */
     @import url("https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Serif+Text:ital@0;1&family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Quicksand:wght@300..700&display=swap");
 
-    /* 2. Define the variables so the browser knows what --font-1 is */
     :root {
       --font-1            : "Public Sans", sans-serif;
       --font-2            : "DM Serif Display", serif;
@@ -31,8 +30,8 @@
       
       font-family: var(--font-1); /* Public Sans */
       font-size: 1.06rem;
-      line-height: var(--vspace-1); /* Using your 32px vertical rhythm */
-      color: var(--color-gray-4);   /* Your #515151 about text color */
+      line-height: var(--vspace-1); /* Using 32px vertical rhythm */
+      color: var(--color-gray-4);   /* #515151 about text color */
       
       background-color: var(--color-black);
       -webkit-font-smoothing: antialiased;
@@ -48,7 +47,7 @@
       position: sticky;
       top: 0;
       z-index: 1000;
-      box-shadow: 0 0 15px rgba(109, 181, 202, 0.4); /* Soft glow using your color */
+      box-shadow: 0 0 15px rgba(109, 181, 202, 0.4); /* Soft glow using color */
       margin-bottom: var(--vspace-1_5);
       
       width: 100vw; 
@@ -74,11 +73,10 @@
       letter-spacing: .2rem;
       transition: all 0.3s ease-in-out; 
     }
+
     .back-btn:hover {
-    color: var(--color-gray-6) !important; /* Changes to white on hover */
     text-shadow: 0 0 10px var(--color-1); /* Adds a blue glow effect */
     transform: translateX(-2px); /* Subtle "push" to the left */
-    opacity: 0.9;
 }
 /* Style for the "Detailed Code" label */
     .github-container {
@@ -162,7 +160,7 @@
       margin: 1em 0 1em 1.7em;
       padding-left: 1em;
       border-left: 4px solid var(--color-1);
-      box-shadow: 0 0 15px rgba(109, 181, 202, 0.4); /* Soft glow using your color */
+      box-shadow: 0 0 15px rgba(109, 181, 202, 0.4); /* Soft glow using color */
       color: var(--color-gray-4);
     }
     code {
@@ -238,7 +236,7 @@
     div.columns{display: flex; gap: min(4vw, 1.5em);}
     div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    /* The extra [class] is a hack that increases specificity enough to
+    /* The extra [class] will increases specificity enough to
        override a similar rule in reveal.js */
     ul.task-list[class]{list-style: none;}
     ul.task-list li input[type="checkbox"] {
@@ -272,7 +270,7 @@
     font-weight: 500;
     text-transform: uppercase;
     letter-spacing: 0.15rem;
-    color: var(--color-gray-7); /* Light grey so it's subtle, not distracting */
+    color: var(--color-gray-7); 
 }
  
  .ss-copyright span {
@@ -290,7 +288,9 @@
  .ss-copyright span:last-child::after {
      display : none;
  }
-/* --- TABLE OF CONTENTS --- */
+/* ===================================================================
+/* --- TABLE OF CONTENTS ---
+=====================================================================*/
    
     /* 1. The Toggle Button */
     #toc-toggle {
@@ -357,7 +357,7 @@
     .toc ul li a {
         text-decoration: none;
         font-size: 0.85rem;
-        color: var(--color-gray-7);
+        color: var(--color-gray-4);
         /* Line added below for smooth movement */
         transition: all 0.3s ease; 
         display: inline-block; /* Required for the nudge effect to work */

@@ -1158,7 +1158,7 @@ p, ul, ol, img { margin-bottom: var(--vspace-1); }
      display          : none;
      height           : var(--header-height);
      background-color: #000000; /* Soft cream tone */
-    box-shadow: 0 0 15px rgba(109, 181, 202, 0.4); /* Soft glow using your color */
+    box-shadow: 0 0 15px rgba(109, 181, 202, 0.4); /* Soft glow using color */
  }
  /* --------------------------------------------------------------------
   * ## main navigation       
@@ -1530,7 +1530,7 @@ p, ul, ol, img { margin-bottom: var(--vspace-1); }
  .s-works .h1 {
      margin-top : 0;
      font-size: 40px; /* Adjust the font size here */
-     font-weight : 400; /* or 300, 200, etc. depending on your preference */
+     font-weight : 400; /* or 300, 200, etc. depending on preference */
  }
  
  /* --------------------------------------------------------------------
