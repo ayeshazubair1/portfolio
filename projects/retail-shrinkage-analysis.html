@@ -61,12 +61,13 @@ are driving both issues.</p>
 </blockquote>
 
 <h2 id="executive-summary">🎯 Executive Summary</h2>
-<p>This analysis identifies two major financial risks impacting Bibitor LLC:</p>
+<p>Despite strong revenues, Bibitor's margins are being quietly eroded from two directions:</p>
 <ul>
     <li><b>$199K</b> in direct annual shrinkage losses</li>
     <li><b>$28M</b> in capital tied up in slow-moving inventory</li>
 </ul>
-<p>65% of all shrinkage is localized in four stores — notably Store 77 and Store 25 — which also carry the highest excess inventory levels. Vendor fulfillment inaccuracies compound the problem, with William Grant & Sons Inc alone accounting for a 35K-unit delivery variance. Targeting audits at high-risk locations and enforcing vendor accountability represents the clearest path to releasing trapped capital and stabilizing margins.<br>
+<p>65% of all shrinkage is localized in four stores — notably Store 77 and Store 25 — which also carry the highest excess inventory levels. Vendor fulfillment inaccuracies compound the problem, with William Grant & Sons Inc alone accounting for a 35K-unit delivery variance. 
+    <span class="para-gap"></span>Prioritizing targeted audits at high-risk stores and enforcing vendor compliance controls will provide the fastest path to reducing losses, improving inventory turnover, and releasing trapped capital. <br>
 <b>View Dashboard</b> <a href="https://public.tableau.com/app/profile/ayeshazubair/viz/RetailShrinkageInventoryAnalysisBibitorLLC/bibitor_dashboard" target="_blank">here</a>.
 </p>
 
@@ -238,9 +239,8 @@ shrinkage despite 6th in sales</td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong>Top Vendor Issue</strong></td>
-<td style="text-align: left;">-14.44%</td>
-<td style="text-align: left;">William Grant &amp; Sons Inc
-under-delivered by 35.9K units</td>
+<td style="text-align: left;">35.9K</td>
+<td style="text-align: left;">Grant & Sons Inc — highest under-delivery variance across all vendors </td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong>Loss Concentration</strong></td>
@@ -263,7 +263,7 @@ Architecture</h2>
 <strong>Architecture:</strong> Raw → Clean → Gold (medallion approach)<br>
 <strong>Data Flow:</strong></p>
 <pre style="background-color: var(--color-gray-12); padding: 15px; border-radius: 5px;   box-shadow: 0 0 15px rgba(109, 181, 202, 0.4); /* Soft glow using your color */ font-family: monospace; line-height: 1.5; overflow-x: auto;">
-Raw CSV Files (6 tables: stores, products, vendors, inventory, sales, purchases)
+Raw CSV Files
     ↓
 Clean Layer (Views: deduplication, validation, type casting)
     ↓
