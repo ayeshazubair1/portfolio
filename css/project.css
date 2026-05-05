@@ -12,10 +12,10 @@
      --color-gray-6       : #727373; /*contents & code block*/
      --color-gray-12      : #101112;  /* code blocks */
      --color-gray-7       : #5b5b5c; /* copyright & content boarder & header footer lines */
-      --color-black        : #000000;
+      --color-black       : #000000;
       --space             : 1.6rem;
       --vspace-1          : var(--space);
-      --vspace-1_5         : calc(1.5 * var(--space));
+      --vspace-1_5        : calc(1.5 * var(--space));
     }
        /* Default styles provided by pandoc.
     ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -29,11 +29,10 @@
       max-width: 55em;
       padding: 0 50px 50px 50px; /* Removed top padding for the sticky header */
       
-      /* Matching your exact homepage fonts and colors */
       font-family: var(--font-1); /* Public Sans */
       font-size: 1.06rem;
       line-height: var(--vspace-1); /* Using your 32px vertical rhythm */
-      color: var(--color-gray-4); /* Your #515151 about text color */
+      color: var(--color-gray-4);   /* Your #515151 about text color */
       
       background-color: var(--color-black);
       -webkit-font-smoothing: antialiased;
@@ -42,8 +41,6 @@
     p {
       margin-bottom: var(--vspace-1); /* Consistent vertical spacing */
     }
-
-    /* New Header using your exact color palette */
     /* Clean Header Styling */
    .project-header {
       background-color: #000000; 
