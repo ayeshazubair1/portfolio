@@ -17,7 +17,7 @@
     </a>
 
     <div class="github-container">
-        <a href="https://github.com/ayeshazubair1/retail-shrinkage-optimization" target="_blank" class="github-badge-link">
+        <a href="https://github.com/ayeshazubair1/customer-revenue-concentration" target="_blank" class="github-badge-link">
             <img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub" />
         </a>
     </div>
@@ -36,7 +36,7 @@
             <li><a href="#key-findings-business-implications">Findings</a></li>
             <li><a href="#recommended-action-plan">Action Plan</a></li>
             <li><a href="#methodology-analytical-approach">Methodology</a></li>
-            <li><a href="#operational-risk-performance-indicators">KPIs</a></li>
+            <li><a href="#key-business-metrics">Metrics</a></li>
             <li><a href="#tech-stack-data-architecture">Tech Stack</a></li>
         </ul>
     </nav>
@@ -44,3 +44,281 @@
 <h1
 id="retail-shrinkage-inventory-optimization-analysis-bibitor-llc">Retail
 Revenue Risk & Customer Dependency Analysis — Contoso</h1> <hr>
+
+<h2 id="business-context">Business Context</h2>
+<p>Contoso is a large-scale retail company operating across multiple countries and product categories. Revenue grew from <strong>$88M in 2015</strong> to a peak 
+    of <strong>$444M in 2022</strong>, followed by a noticeable decline—raising concerns around revenue stability, customer retention, and long-term sustainability. 
+Leadership suspects that revenue may be heavily dependent on a relatively small group of high-value customers, creating potential exposure if these 
+customers reduce engagement or churn.</p>
+
+<blockquote>
+<p><strong>The Challenge:</strong> Assess revenue dependency on high-value customers, detect early risk signals of disengagement, and quantify 
+    how much revenue is exposed to potential churn.</p>
+</blockquote>
+
+<h2 id="executive-summary">🎯 Executive Summary</h2>
+<p> Nearly half of Contoso’s revenue, <strong>43.5%</strong>, comes from just 20% of customers, creating significant concentration risk.
+    <span class="para-gap"></span>
+    Within this segment, nearly half of customers are already inactive, while <strong>1,421 Declining customers represent $78.7M in revenue and $44.2M in 
+    profit</strong> — still within retention reach.
+    <span class="para-gap"></span>
+    The online channel alone holds <strong>$27.1M</strong>—the single largest at-risk exposure. An additional 
+    <strong>18 physical stores carry a combined $34M</strong> in revenue risk, requiring coordinated localized retention action. 
+    <span class="para-gap"></span>
+    Without intervention, retention becomes acquisition — and that cost is never linear.
+</p>
+<h2 id="key-findings-business-implications">Key Findings &amp; Business Implications</h2>
+
+<h3 id="revenue-concentration-dependency-risk">1. Nearly Half of Contoso's Revenue Flows from Just 20% of Customers</h3>
+<p>The top 20% of customers contribute <strong>43.5%</strong> of total revenue and <strong>44.26%</strong> of total profit—concentrated in just one-fifth 
+    of the customer base. Within that group, the top 10% alone account for over a quarter of both.</p>
+<p><strong>Business Implication:</strong> This is dependency, not just concentration. Losing high-value customers would impact revenue immediately and 
+    disproportionately. Retention of this segment is not a marketing priority—it’s a financial risk decision.</p>
+<p><img src="../images/contoso_charts/01_revenue_concentration.png" width="300" alt="Bar chart showing revenue concentration"></p>
+
+<h3 id="engagement-fragmentation">2. Within the Top 20%, Engagement Is Fragmenting — Not Holding</h3>
+<p>Only <strong>26%</strong> of customers show consistent engagement, while <strong>49%</strong> are classified as Inactive — high spenders averaging 
+    $3,904 AOV who have not purchased in ~462 days. The <strong>Declining segment</strong> (1,421 customers) shows the sharpest recency gap at ~558 days, 
+    despite historically adequate purchase frequency.</p>
+<p><strong>Business Implication:</strong> The majority of high-value customers are either disengaging or already lost. The Consistent segment is being 
+    outnumbered—without intervention, today’s Stable customers will become tomorrow’s Declining ones.</p>
+<p><img src="../images/contoso_charts/02_customer_segment.png" width="300" alt="Horizontal bar chart showing customer segmentation"></p>
+
+<h3 id="recoverable-revenue-window">3. $78M in Revenue Is Still Recoverable — But the Window Is Narrowing</h3>
+<p>Among the top 20% of customers, the Declining segment (1,421 customers) contributes <strong>$78.7M (8.5% of top-customer revenue)</strong> — and they 
+    are still reachable. In contrast, Inactive customers represent <strong>$411M (44.6%)</strong> in historical revenue, indicating a substantial portion 
+    has already been lost.</p>
+<p><strong>Business Implication:</strong> The $78M at risk represents the last actionable retention window. These customers are still within reach—without 
+    intervention, they will transition into fully lost revenue, where recovery becomes acquisition at a significantly higher cost.</p>
+
+<h3 id="channel-revenue-exposure">4. Risk Is Concentrated — One Channel Dominates Revenue Exposure</h3>
+<p>At the store level, revenue risk is highly concentrated. The Critical store — Online channel — holds <strong>$27.1M at risk</strong> across 1,420 
+    declining customers, representing <strong>34% of total at-risk revenue</strong>. The 18 High-risk physical stores collectively expose an additional 
+    $34M—larger in total but distributed across locations, making the online channel the most urgent intervention point.</p>
+<p><strong>Business Implication:</strong> The online channel needs immediate digital retention (personalization, reactivation, incentives), while physical
+     stores require coordinated, localized retention efforts. Treating both the same would be ineffective.</p>
+<p><img src="../images/contoso_charts/03_store_risk.png" width="300" alt="Tree map showing store risk"></p>
+
+<h2 id="recommended-action-plan">Recommended Action Plan</h2>
+
+<h3 id="retain-declining-customers">1. Retain Declining High-Value Customers (Immediate)</h3>
+<strong>1,421 customers representing $78.7M</strong> are still recoverable and should be prioritized before full churn.
+<ul>
+    <li>Start with customers showing the longest inactivity — this is where disengagement is sharpest according to the segmentation</li>
+    <li>Tailor offers based on what they last bought, not generic discounts</li>
+    <li>Gather feedback to understand why they're leaving — price, product, or experience</li>
+</ul>
+
+<h3 id="online-channel-risk">2. Treat Online Channel Risk Separately (Critical)</h3>
+The online channel alone holds <strong>$27.1M at risk</strong> across 1,420 declining customers — the single largest at-risk touchpoint.
+<ul>
+    <li>Reach out in stages based on how long each customer has been inactive</li>
+    <li>Focus high-effort outreach on customers spending $3,900+ on average</li>
+    <li>This needs dedicated e-commerce attention — a standard marketing campaign won't be enough</li>
+</ul>
+
+<h3 id="store-level-retention">3. Activate Store-Level Retention in High-Risk Locations</h3>
+<strong>18 physical stores hold $34M at risk</strong> — requiring localized, not network-wide, intervention.
+<ul>
+    <li>Give each store manager a list of at-risk customers filtered by recency and spend</li>
+    <li>Check purchase history for product gaps — customers may be leaving due to stockouts, not disinterest</li>
+    <li>Measure monthly recovery per store before expanding any approach</li>
+</ul>
+
+<h3 id="leadership-escalation">4. Escalate Customer Concentration Risk to Leadership (Strategic)</h3>
+<strong>43.5% of revenue comes from top 20% of customers</strong> is a structural risk, not a marketing problem.
+<ul>
+    <li>Define clear thresholds that trigger a leadership review when top-customer activity drops</li>
+    <li>Set a long-term goal to grow the broader customer base and reduce this dependency</li>
+</ul>
+<h2 id="methodology-analytical-approach">Methodology & Analytical Approach</h2>
+<ol>
+    <li>
+        <strong>Customer Summary Table:</strong> Built as a Materialized View to support all four business questions and improve 
+        query performance.
+    </li>
+    <span class="para-gap"></span>
+    <li>
+        <strong>Customer Ranking:</strong> <code>ROW_NUMBER()</code> was used to rank customers by revenue and profit for Top 10% and
+         Top 20% concentration analysis.
+    </li>
+    <span class="para-gap"></span>
+    <li>
+        <strong>Analytical Views:</strong> Two views were created for consistency and efficiency across questions: 
+        <code>high_value_customers</code> (top 20% by revenue) and <code>at_risk_customers</code> (Declining customer segment).
+    </li>
+    <span class="para-gap"></span>
+    <li>
+        <strong>Data-Driven Segmentation:</strong> <code>PERCENTILE_CONT()</code> was used to analyze distributions and create 
+        data-driven customer and store risk thresholds instead of arbitrary cutoffs.
+    </li>
+    <span class="para-gap"></span>
+    <li>
+        <strong>Recency Reference Logic:</strong> Recency was measured against the latest available date in the <code>Date</code> 
+        table (<strong>Dec 31, 2024</strong>).
+    </li>
+    <span class="para-gap"></span>
+    <li>
+        <strong>Code Modularization:</strong> CTEs were used throughout to keep queries readable, auditable, and maintainable.
+    </li>
+</ol>
+
+<h2 id="key-business-metrics">Key Business Metrics</h2>
+<table>
+    <colgroup>
+        <col style="width: 35%" />
+        <col style="width: 15%" />
+        <col style="width: 50%" />
+    </colgroup>
+    <thead>
+        <tr>
+            <th style="text-align: left;">Metric</th>
+            <th style="text-align: left;">Value</th>
+            <th style="text-align: left;">Business Context</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="text-align: left;"><strong>Top 20% Revenue Contribution</strong></td>
+            <td style="text-align: left;">43.5%</td>
+            <td style="text-align: left;">Nearly half of total revenue comes from top customers</td>
+        </tr>
+        <tr>
+            <td style="text-align: left;"><strong>Top 20% Profit Contribution</strong></td>
+            <td style="text-align: left;">44.26%</td>
+            <td style="text-align: left;">Profitability is equally concentrated</td>
+        </tr>
+        <tr>
+            <td style="text-align: left;"><strong>Revenue at Risk</strong></td>
+            <td style="text-align: left;">$78.7M</td>
+            <td style="text-align: left;">Revenue tied to declining high-value customers</td>
+        </tr>
+        <tr>
+            <td style="text-align: left;"><strong>Profit at Risk</strong></td>
+            <td style="text-align: left;">$44.2M</td>
+            <td style="text-align: left;">Profit exposure if declining customers churn</td>
+        </tr>
+        <tr>
+            <td style="text-align: left;"><strong>Largest Risk Channel (Online)</strong></td>
+            <td style="text-align: left;">$27.1M</td>
+            <td style="text-align: left;">Highest concentration of at-risk revenue</td>
+        </tr>
+    </tbody>
+</table>
+
+<h2 id="tech-stack-data-architecture">🛠️ Tech Stack &amp; Data Architecture</h2>
+<p><strong>Tools:</strong> PostgreSQL • DBeaver • Tableau <br>
+<strong>Architecture:</strong> Raw → Clean → Gold → Analysis <br>
+<strong>Data Flow:</strong></p>
+<pre style="background-color: var(--color-gray-12); padding: 15px; border-radius: 5px;   box-shadow: 0 0 15px rgba(109, 181, 202, 0.4); /* Soft glow using your color */ font-family: monospace; line-height: 1.5; overflow-x: auto;">
+Raw Tables
+   ↓
+Clean Layer (type casting, validation, standardization)
+   ↓
+Gold Layer (<code>customer_summary</code> materialized view)
+   ↓
+Analysis Layer (<code>high_value_customers</code>, <code>at_risk_customers</code>)
+</pre>
+
+<p><strong>Why This Architecture:</strong> This layered structure separates raw data from business-ready models, improves query performance, and ensures consistent metrics across all downstream analysis.</p>
+<p>Detailed technical documentation <a href="https://github.com/ayeshazubair1/customer-revenue-concentration/blob/main/data_catalog.md" target="_blank">here.</a><br />
+Download <a href="https://github.com/sql-bi/Contoso-Data-Generator-V2-data/releases/tag/ready-to-use-data" target="_blank"><strong>dataset</strong></a></p>
+
+<h2 id="future-analysis-opportunities">Future Analysis Opportunities</h2>
+<ol>
+    <li>
+        <strong>Root Cause Analysis for Declining Customers:</strong> Investigate why high-value customers are disengaging through customer feedback, complaint logs, or support data.
+    </li>
+    <span class="para-gap"></span>
+    <li>
+        <strong>Seasonality & Purchase Behavior Analysis:</strong> Compare declining customer behavior against holidays, promotions, and seasonal demand patterns to determine whether disengagement is temporary or structural.
+    </li>
+    <span class="para-gap"></span>
+    <li>
+        <strong>Online Channel Deep Dive:</strong> Analyze website performance, cart abandonment, and digital journey friction since the online channel holds the largest risk concentration.
+    </li>
+    <span class="para-gap"></span>
+    <li>
+        <strong>Inactive Customer Re-Acquisition Strategy:</strong> Assess last purchase behavior, product preferences, and inactivity duration to identify which inactive customers are worth reactivation investment.
+    </li>
+</ol>
+
+<h2 id="limitations-assumptions">⚠️ Limitations &amp; Assumptions</h2>
+<ol>
+    <li>
+        <strong>Partial 2024 Data:</strong> The latest recorded orders end in April 2024. As a result, recency metrics may appear higher because the full year is not represented.
+    </li>
+    <span class="para-gap"></span>
+    <li>
+        <strong>Churn Estimated from Behavior:</strong> At-risk customers were identified using recency and frequency patterns, not confirmed churn records.
+    </li>
+    <span class="para-gap"></span>
+    <li>
+        <strong>No External Context:</strong> The analysis identifies who is at risk and how much revenue is exposed, but cannot fully explain why customers are disengaging without feedback or market data.
+    </li>
+    <span class="para-gap"></span>
+    <li>
+        <strong>Threshold Benchmarks:</strong> All segmentation thresholds were derived from internal data distributions, as no external industry benchmarks were available.
+    </li>
+    <span class="para-gap"></span>
+    <li>
+        <strong>Synthetic Dataset:</strong> Contoso is a fictional dataset. Additional context such as loyalty history, customer feedback, or campaign data was unavailable.
+    </li>
+</ol>
+
+<h2 id="project-structure">📁 Project Structure</h2>
+<pre style="background-color: var(--color-gray-12); padding: 15px; border-radius: 5px;   box-shadow: 0 0 15px rgba(109, 181, 202, 0.4); /* Soft glow using your color */ font-family: monospace; line-height: 1.5; overflow-x: auto;">
+contoso/
+├── docs
+│   ├── charts
+│   ├── results
+│   └── contoso_ERD.svg
+├── sql
+│   ├── 01_ddl
+│   ├── 02_test
+│   ├── 03_analytics
+│   └── db_init.sql
+├── License.txt
+├── README.md
+├── contoso_viz.twb
+└── data_catalog.md
+</pre>
+<h3 id="license">📄 License</h3>
+<p>This project is licensed under the MIT License. See the <a
+href="https://github.com/ayeshazubair1/customer-revenue-concentration/blob/main/License.txt" target="_blank">License</a> file for details.</p><br><hr>
+
+<footer class="s-footer">
+
+            <div class="row">
+                <div class="column ss-copyright">
+                    <span>© 2026 AYESHA ZUBAIR</span> 
+                </div>
+            </div>
+        </footer> <!-- end s-footer -->
+
+        <!-- TOC toggle-->
+<script>
+    // Wait for the DOM to be fully loaded
+    document.addEventListener('DOMContentLoaded', function() {
+        const tocToggle = document.getElementById('toc-toggle');
+        const tocMenu = document.getElementById('toc-menu');
+        const openIcon = document.querySelector('.open-icon');
+        const closeIcon = document.querySelector('.close-icon');
+
+        tocToggle.addEventListener('click', function() {
+            // Toggle the hidden class
+            const isNowHidden = tocMenu.classList.toggle('is-hidden');
+            
+            // Swap icons based on state
+            if (isNowHidden) {
+                openIcon.style.display = 'inline-block';
+                closeIcon.style.display = 'none';
+            } else {
+                openIcon.style.display = 'none';
+                closeIcon.style.display = 'inline-block';
+            }
+        });
+    });
+</script>        <!-- end TOC toggle-->
+</body>
+</html>
