@@ -46,285 +46,163 @@ id="retail-shrinkage-inventory-optimization-analysis-bibitor-llc">Retail
 Shrinkage &amp; Inventory Optimization Analysis — Bibitor LLC</h1> <hr>
 
 <h2 id="business-context">Business Context</h2>
-<p>Bibitor LLC is a retail wine and spirits company operating ~80 stores
-across the fictional state of Lincoln. Annual sales range between
-$420–450M, with COGS around $300–350M. Despite strong revenue,
-store-level shrinkage (unexplained inventory loss) was increasing,
-reducing profit margins and creating stock imbalances: some stores were
-overstocked, while others frequently ran out of top-selling
-products.</p>
+<p>Bibitor LLC operates ~80 wine and spirits stores across Lincoln, generating $420–450M in annual sales with $300–350M COGS. Despite strong revenue, 
+    the company faces rising shrinkage and inventory imbalance across stores, with some locations overstocked while others frequently run out of 
+    high-demand products.</p>
 
 <blockquote>
-<p><strong>The Challenge:</strong> Identify where inventory is
-disappearing, what’s tying up capital, and which operational failures
-are driving both issues.</p>
+<p><strong>The Challenge:</strong> Identify where inventory is disappearing, what's tying up capital, and the operational issues behind both.</p>
 </blockquote>
 
 <h2 id="executive-summary">🎯 Executive Summary</h2>
-<p>Despite strong revenues, Bibitor's margins are being quietly eroded from two directions:</p>
+<p>Despite strong revenues, Bibitor’s margins are eroded by two core issues:</p>
 <ul>
     <li><b>$199K</b> in direct annual shrinkage losses</li>
     <li><b>$28M</b> in capital tied up in slow-moving inventory</li>
 </ul>
-<p>65% of all shrinkage is localized in four stores — notably Store 77 and Store 25 — which also carry the highest excess inventory levels. Vendor fulfillment inaccuracies compound the problem, with William Grant & Sons Inc alone accounting for a 35K-unit delivery variance. 
-    <span class="para-gap"></span>Prioritizing targeted audits at high-risk stores and enforcing vendor compliance controls will provide the fastest path to reducing losses, improving inventory turnover, and releasing trapped capital. <br>
+<p>65% of shrinkage is concentrated in four stores, led by Store 77 and Store 25.<br>
+Vendor fulfillment errors contribute significant variance, including a 35K-unit discrepancy from William Grant & Sons Inc.<br> 
 <b>View Dashboard</b> <a href="https://public.tableau.com/app/profile/ayeshazubair/viz/RetailShrinkageInventoryAnalysisBibitorLLC/bibitor_dashboard" target="_blank">here</a>.
 </p>
 
-<h2 id="key-findings-business-implications">Key Findings &amp;
-Business Implications</h2>
+<h2 id="key-findings">Key Findings</h2>
 <h3
 id="shrinkage-is-highly-concentrated-four-stores-drive-nearly-two-thirds-of-total-loss">1.
 Shrinkage Is Highly Concentrated: Four Stores Drive Nearly Two-Thirds of
 Total Loss</h3>
-<p>Four locations — Stores 77, 25, 63, and 47 — account for approximately <strong>$129K</strong>, or <strong>65%, of total annual shrinkage ($200K)</strong>. Combined exposure breaks down into $94K in direct cost and $35K in lost margin, confirming that financial impact extends beyond inventory write-offs. Store 77 is the highest-risk location at $53K in exposure, likely amplified by its large SKU assortment (7,344 SKUs).</p>
-<p><strong>Business Implication:</strong> Shrinkage is concentrated, not systemic. Because unrealized margin exceeds direct write-offs, the true financial impact is understated in accounting records — and the concentration means leadership can target a small set of stores rather than applying broad, inefficient interventions across the network.</p>
+<p>Four locations account for <b>$129K</b> (65%), of total annual shrinkage ($200K), split into $94K direct cost and $35K lost margin. <b>Store 77 is the highest-risk location</b> at $53K in exposure, likely amplified by its large SKU assortment.</p>
 <p><img src="../images/bibitor_charts/01_store_shrinkage.png" width="400" alt="Vertical bar chart showing financial loss from shrinkage"></p>
 
 <h3
 id="operational-leakage-dominates-low-value-items-drive-88-of-shrinkage-value">2.
 Operational Leakage Dominates: Low-Value Items Drive 88% of Shrinkage
 Value</h3>
-<p>While high-value products show a slightly higher average loss rate, low-value items account for <strong>88%</strong> of total shrinkage value ($233K of $264K) — driven by volume, not unit price.</p>
-<p><strong>Business Implication:</strong> This pattern points to operational failures — receiving errors, miscounts, breakage, and recording gaps — as the primary loss drivers. Interventions focused solely on high-value theft prevention would address less than 12% of total exposure. Broader process controls are required to materially reduce shrinkage.</p>
+<p>Low-value items account for 88% of total shrinkage ($233K of $264K), driven by transaction volume rather than unit price. High-value items show higher per-unit loss rates but minimal contribution to total loss.</p>
 <p><img src="../images/bibitor_charts/02_value_tier.png" width="400" alt="Vertical bar chart showing monetary loss by product category"></p>
 
 <h3
 id="capital-inefficiency-structural-risk">3.
 Capital Inefficiency Represents the Largest Structural Risk: $28M Locked in Slow-Moving Inventory</h3>
-<p>Across the network, 8,198 SKUs exceed 90 days of supply, tying up approximately <strong>$28M</strong> in working capital. Exposure is highly concentrated — four stores (77, 26, 49, and 25) alone account for ~$5.5M, with Store 77 as the single largest contributor at nearly $2M in slow-moving stock.<br>
-     Liquidity risk is most severe in Stores 64, 77, 40, and 49, where inventory-weighted average days of supply exceed 700 days, indicating prolonged stagnation.
-</p>
-<p><strong>Business Implication:</strong> Inventory inefficiency poses a larger structural risk than shrinkage. At an 8% cost of capital, excess stock generates ~$2.24M in annual opportunity cost — and unlike shrinkage, this exposure compounds over time as holding periods increase damage and obsolescence risk.</p>
+<p>Across the network, 8,198 SKUs exceed 90 days of supply, tying up $28M in working capital. Exposure is highly concentrated — four stores (77, 26, 49, and 25) alone account for $5.5M, with Store 77 alone contributing nearly $2M.<br>
+<b>Liquidity risk</b> is most severe in Stores 64, 77, 40, and 49, where inventory average days of supply exceed 700 days, indicating prolonged stagnation.</p>
 <p><img src="../images/bibitor_charts/03_excess_inventory.png" width="400" alt="Horizontal bar chart showing stores with most capital tied up in excess inventory"></p>
 <h3
 id="vendor-delivery-inaccuracies-create-systemic-stock-imbalances">4.
 Vendor Delivery Inaccuracies Create Systemic Stock Imbalances</h3>
-<p>Inventory variance is concentrated among specific vendors rather than
-occurring randomly. William Grant &amp; Sons Inc shows cumulative
-under-deliveries exceeding 35,000 units, while Alisa Carr Beverages
-over-delivered by approximately 65% relative to ordered quantities.
-These deviations are consistent across multiple products, indicating
-persistent fulfillment inaccuracies.</p>
-<p><strong>Business Implication:</strong> Vendor delivery reliability is a direct driver of inventory imbalance. 
-  Under-delivery creates stockouts and lost sales, while over-delivery increases capital lock-up. Because variance is 
-  concentrated among a small number of suppliers, this represents a manageable counterparty risk rather than a systemic 
-  supply-chain failure.</p>
+<p>Inventory variance is concentrated among specific vendors rather than distributed randomly. William Grant & Sons Inc shows cumulative under-deliveries exceeding 35K units, while Alisa Carr Beverages over-delivered by approximately 65% relative to orders. These patterns are consistent across multiple products, indicating persistent fulfillment errors.</p>
 <p><img src="../images/bibitor_charts/04_vendor_variance.png" width="450" alt="Diverging bar chart showing vendor fulfillment accuracy"></p>
 <h3
 id="geographic-patterns-reveal-distinct-operational-failure-modes">5.
 Geographic Patterns Reveal Distinct Operational Failure Modes</h3>
-<p>Losses cluster geographically. Mountmend (Store 77) and Paentmarwy
-(Store 25) together account for over <strong>$64K</strong> in shrinkage.
-In contrast, locations such as Eanverness (Store 49) and Pitmerden
-(Store 40) exhibit significant overstock relative to recorded
-deliveries.</p>
-<p><strong>Business Implication:</strong> Operational failures are not
-uniform across the network. Loss-heavy cities indicate breakdowns in
-inventory control or security, while overstock-heavy locations suggest
-receiving and recording failures. This heterogeneity invalidates
-one-size-fits-all solutions and highlights the need for differentiated
-operational diagnosis.</p>
+<p>Losses cluster geographically, with Store 77 (Mountmend) and Store 25 (Paentmarwy) accounting for $64K+ in shrinkage. In contrast, Stores 49 (Eanverness) and 40 (Pitmerden) show significant overstock relative to recorded deliveries, indicating localized receiving and inventory control failures.</p>
 <p><img src="../images/bibitor_charts/05_location_risk.png" width="450" alt="Diverging bar chart showing financial discrepancies"></p>
 
+
 <h2 id="recommended-action-plan">Recommended Action Plan</h2>
-<h3 id="stabilize-inventory-where-risk-concentrates">1. Stabilize
-Inventory Where Risk Concentrates</h3>
-<h4 id="phase-1.1---high-risk-stores-immediate">Phase 1.1 -
-High-Risk Stores (Immediate)</h4>
-<strong>Target Stores:</strong> 77, 25, 26, 49<span class="para-gap"></span>
-These locations are repeatedly flagged across shrinkage, excess days of supply, and overstock indicators — signaling compounding risk, not isolated variance. Addressing them first delivers the highest return by reducing margin erosion and releasing tied-up capital.
+<h4 id="1-stabilize-inventory-in-high-risk-stores">1. Stabilize Inventory in High-Risk Stores</h4>
+<h5 id="phase-1-1-critical-stores-immediate-focus-">Phase 1.1 — Critical Stores (Immediate Focus)</h5>
+<p><strong>Target Stores:</strong> 77, 25, 26, 49<br>These stores show overlapping issues in shrinkage, excess inventory, and stock imbalance.<br>
+<strong>Actions:</strong></p>
 <ul>
-    <li>Perform focused inventory reconciliations to identify root discrepancies</li> 
-    <li>Tighten receiving and stock movement controls for high-volume SKUs</li> 
-    <li>Introduce short-cycle counts for slow-moving and variance-prone items</li> 
-    <li>Temporarily restrict replenishment for SKUs exceeding 90 days of supply</li>    
+<li>Focused full inventory reconciliation for all SKUs</li>
+<li>Tighten receiving and stock movement controls</li>
+<li>Introduce frequent cycle counts for high-variance SKUs</li>
+<li>Temporarily restrict replenishment for items exceeding 90 days of supply</li>
 </ul>
-
-<h4 id="phase-1.2---moderate-risk-stores-targeted-controls">Phase 1.2 -
-Moderate-Risk Stores (Targeted Controls)</h4>
-<strong>Target Stores:</strong> 63, 47, 50, 45<span class="para-gap"></span>
-These stores show elevated risk in a single dimension — shrinkage or excess inventory — but no compounding failure patterns yet. Early controls reduce the likelihood of escalation into Phase 1 territory.
+<h5 id="phase-1-2-emerging-risk-stores">Phase 1.2 — Emerging Risk Stores</h5>
+<p><strong>Target Stores:</strong> 63, 47, 50, 45<br>These stores show isolated risk signals in shrinkage or inventory imbalance, without compounding failure patterns.<br>
+<strong>Actions:</strong></p>
 <ul>
-    <li>Apply inventory controls validated in Phase 1</li>
-    <li>Monitor shrinkage and days-of-supply trends on a rolling basis</li>
-    <li>Escalate stores showing worsening indicators to Phase 1 protocols</li>
+<li>Apply Phase 1 control framework at reduced frequency</li>
+<li>Monitor shrinkage and days-of-supply trends continuously</li>
+<li>Escalate stores showing worsening trends into Phase 1.1</li>
 </ul>
-
-<h3
-id="fix-process-leakage-in-low-value-products">2.
-Fix Process Leakage in Low-Value Products</h3>
-<strong>Target Category:</strong> Low-value products<span class="para-gap"></span>
-Low-value products account for the highest unit loss volume and contribute approximately **$233K** in shrinkage — making them the dominant driver of total shrinkage by scale, not rate.
+<h4 id="2-reduce-leakage-in-low-value-items">2. Reduce Leakage in Low-Value Items</h4>
+<p><strong>Target Category:</strong> Low-value SKUs<br>Low-value items are the primary driver of shrinkage by volume.<br>
+<strong>Actions:</strong></p>
 <ul>
-    <li>Strengthen receiving and quantity verification for low-value items</li>
-    <li>Increase cycle count frequency for discrepancy-prone SKUs</li>
-    <li>Standardize shelf-replenishment practices to reduce breakage and misplacement</li>
+<li>Strengthen receiving verification for high-volume SKUs</li>
+<li>Increase cycle count frequency for discrepancy-prone items</li>
+<li>Standardize replenishment and shelf handling processes</li>
+<li>Reduce breakage and misplacement through tighter operational controls</li>
 </ul>
-
-<h3
-id="enforce-vendor-delivery-accountability">3.
-Enforce Vendor Delivery Accountability</h3>
-<strong>Target Area:</strong> Vendors with persistent over-delivery
-and under-delivery patterns<span class="para-gap"></span>
-Inventory variance is concentrated among a small number of vendors. Under-delivery drives stockouts; over-delivery creates excess inventory and capital lock-up. Both are addressable without broad supply-chain disruption.
+<h4 id="3-improve-vendor-delivery-accuracy">3. Improve Vendor Delivery Accuracy</h4>
+<p><strong>Target Area:</strong> High-variance vendors (under/over delivery patterns) 
+Vendor inconsistency is driving both stockouts and excess inventory.<br>
+<strong>Actions:</strong></p>
 <ul>
-    <li>Introduce vendor-level delivery accuracy tracking (ordered vs. received)</li>
-    <li>Flag vendors with repeated deviations beyond acceptable tolerance</li>
-    <li>Require enhanced receiving verification for high-variance vendors</li>
+<li>Implement vendor-level tracking (ordered vs received vs billed)</li>
+<li>Flag vendors exceeding variance thresholds</li>
+<li>Enforce stricter receiving validation for high-variance suppliers</li>
+<li>Introduce periodic vendor performance reviews based on delivery accuracy</li>
 </ul>
-
-<h2 id="methodology-analytical-approach">Methodology & Analytical
-Approach</h2>
-<ol>
-    <li>
-        <strong>Performance Optimization:</strong> To handle high-volume tables (12M+ sales records), Materialized Views and B-Tree Indexing were implemented on primary and foreign keys — significantly reducing query execution time by pre-aggregating core metrics and improving data retrieval efficiency.
-    </li> <span class="para-gap"></span>
-    <li>
-        <strong>Code Modularization:</strong> CTEs were used to keep the analytical pipeline modular, readable, and maintainable — allowing complex multi-step calculations to be audited easily.
-    </li> <span class="para-gap"></span>
-    <li>
-        <strong>Weighted Valuation:</strong> Weighted Averages were preferred over naive averages for sale and purchase prices, ensuring high-volume transactions carry appropriate mathematical weight and preventing low-volume outliers from skewing financial results.
-    </li> <span class="para-gap"></span>
-    <li>
-        <strong>Core Shrinkage Framework:</strong> A three-pillar calculation was standardized across every business question for consistency:
-        <ul style="list-style-type: disc; margin-left: 20px;">
-            <li>Unit Loss: Physical discrepancy in inventory.</li>
-            <li>Monetary Impact: Total dollar-value exposure.</li>
-            <li>Percentage Impact: Loss rate relative to total volume or value.</li>
-        </ul>
-    </li> <span class="para-gap"></span>
-    <li>
-        <strong>Data-Driven Threshold:</strong> In the absence of predefined industry benchmarks, `PERCENTILE_CONT` was used to perform a distribution analysis and establish risk thresholds from the data itself.
-    </li> <span class="para-gap"></span>
-    <li>
-        <strong>Risk Categorization:</strong> Final segmentation (Critical vs. High-Impact) was derived by testing multiple percentiles (P75, P91, P96) to identify the elbow point — the threshold where financial risk and exposure significantly accelerate.
-    </li> <span class="para-gap"></span>
-</ol>
-
-<h2 id="operational-risk-performance-indicators">Operational Risk &amp;
-Performance Indicators</h2>
+<h2 id="methodology-analytical-approach">Methodology &amp; Analytical Approach</h2>
+<p><strong>1. Performance Optimization:</strong> Materialized views and B-tree indexing were used on large tables (~12M+ records) to speed up queries and pre-aggregate core metrics.<br><strong>2. Data Modeling:</strong> A medallion architecture (Raw → Clean → Gold) was implemented, with a star schema in the Gold layer for consistent analytics.<br><strong>3. Query Design:</strong> CTEs were used to structure multi-step transformations for readability and maintainability.<br><strong>4. Metric Standardization:</strong> A core shrinkage framework was applied across all analysis: unit loss, monetary impact, and percentage impact.<br><strong>5. Weighted Calculations:</strong> Weighted averages were used for pricing metrics to avoid distortion from low-volume transactions.<br><strong>6. Thresholding Approach:</strong> PERCENTILE_CONT was used to derive data-driven risk thresholds in the absence of external benchmarks.<br><strong>7. Risk Segmentation:</strong> Store and product risk tiers were defined using percentile testing (P75–P96) to identify high-risk breakpoints.   </p>
+<h2 id="key-metrics">Key Metrics</h2>
 <table>
-<colgroup>
-<col style="width: 25%" />
-<col style="width: 22%" />
-<col style="width: 52%" />
-</colgroup>
 <thead>
 <tr>
-<th style="text-align: left;">Metric</th>
-<th style="text-align: left;">Value</th>
-<th style="text-align: left;">Business Context</th>
+<th style="text-align:left">Metric</th>
+<th style="text-align:left">Value</th>
+<th style="text-align:left">Business Context</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;"><strong>Total Shrinkage Loss</strong></td>
-<td style="text-align: left;">$199K</td>
-<td style="text-align: left;">Annual revenue impact across 41
-stores</td>
+<td style="text-align:left"><strong>Total Shrinkage Loss</strong></td>
+<td style="text-align:left">$199K</td>
+<td style="text-align:left">Annual impact across 41 stores</td>
 </tr>
 <tr>
-<td style="text-align: left;"><strong>Capital Trapped</strong></td>
-<td style="text-align: left;">$28M</td>
-<td style="text-align: left;">Total value of inventory exceeding the
-90-day supply threshold</td>
+<td style="text-align:left"><strong>Capital Trapped</strong></td>
+<td style="text-align:left">$28M</td>
+<td style="text-align:left">Inventory exceeding 90-day supply</td>
 </tr>
 <tr>
-<td style="text-align: left;"><strong>Worst Performing
-Store</strong></td>
-<td style="text-align: left;">Store 77</td>
-<td style="text-align: left;">Accounts for $53K in loss; ranks 1st in
-shrinkage despite 6th in sales</td>
+<td style="text-align:left"><strong>Worst Performing Store</strong></td>
+<td style="text-align:left">Store 77</td>
+<td style="text-align:left">$53K loss; highest shrinkage despite 6th in sales</td>
 </tr>
 <tr>
-<td style="text-align: left;"><strong>Top Vendor Issue</strong></td>
-<td style="text-align: left;">35.9K</td>
-<td style="text-align: left;">Grant & Sons Inc — highest under-delivery variance across all vendors </td>
+<td style="text-align:left"><strong>Top Vendor Issue</strong></td>
+<td style="text-align:left">35.9K</td>
+<td style="text-align:left">William Grant &amp; Sons Inc under-delivery variance</td>
 </tr>
 <tr>
-<td style="text-align: left;"><strong>Loss Concentration</strong></td>
-<td style="text-align: left;">65%</td>
-<td style="text-align: left;">$129K of total losses are localized within
-just 4 key stores</td>
+<td style="text-align:left"><strong>Loss Concentration</strong></td>
+<td style="text-align:left">65%</td>
+<td style="text-align:left">$129K of losses across 4 stores</td>
 </tr>
 <tr>
-<td style="text-align: left;"><strong>Product Pattern</strong></td>
-<td style="text-align: left;">88%</td>
-<td style="text-align: left;">Loss is dominated by low-value items,
-suggesting process errors over theft.</td>
+<td style="text-align:left"><strong>Product Pattern</strong></td>
+<td style="text-align:left">88%</td>
+<td style="text-align:left">Loss driven by low-value items (process errors over theft)</td>
 </tr>
 </tbody>
 </table>
+<h2 id="-tech-stack-data-architecture">🛠️ Tech Stack &amp; Data Architecture</h2>
+<p><strong>Tools:</strong> PostgreSQL • DBeaver • Tableau<br><strong>Architecture:</strong> Medallion (Raw → Clean → Gold)</p>
+<pre><code>Raw layer   →  Ingested CSV datasets
+Clean layer →  Deduplication, validation, <span class="hljs-keyword">type</span> <span class="hljs-type">casting
+</span>Gold layer  →  Star schema <span class="hljs-keyword">with</span> materialized aggregations <span class="hljs-keyword">for</span> analytics
+</code></pre><p><strong>Why this setup:</strong> Ensures consistent business definitions across all analyses and enables scalable, fast query performance through pre-aggregated models and a semantic-like Gold layer.<br>Detailed documentation <a href="https://github.com/ayeshazubair1/retail-shrinkage-optimization/blob/main/data_catalog.md" target= "_blank">here</a>   </p>
+<h2 id="future-analysis-opportunities">Future Analysis Opportunities</h2>
+<p><strong>1-</strong> Add monthly sales trends to calculate dynamic safety stock levels, replacing the fixed 90-day threshold to better handle seasonality and demand spikes.</p>
+<p><strong>2-</strong> Integrate store-level labor and turnover data to assess whether shrinkage correlates with staffing levels or inventory handling gaps.</p>
+<p><strong>3-</strong> Investigate the 35K-unit vendor discrepancy using delivery and warehouse logs to isolate causes such as documentation errors, shipping issues, or physical loss.</p>
+<h2 id="-limitations-assumptions"> Limitations &amp; Assumptions</h2>
+<p><strong>1. Synthetic Dataset:</strong> Data is fictional; operational context (store layout, staffing, security, cycle counts) is unavailable for deeper root-cause analysis.<br><strong>2. Temporal Granularity:</strong> Data is limited to annual snapshots (Start-of-Year and End-of-Year), preventing analysis of seasonal or monthly trends.<br><strong>3. Demand Assumption:</strong> Days of Supply assumes constant sales velocity and does not account for seasonality or spikes.<br><strong>4. Thresholding Approach:</strong> Risk thresholds (e.g., 90-day supply, percentiles) are data-driven due to lack of predefined business benchmarks.<br><strong>5. Data Scope:</strong> Only products with recorded sales and inventory movement are included.   </p>
 
-<h2 id="tech-stack-data-architecture">🛠️ Tech Stack &amp; Data
-Architecture</h2>
-<p><strong>Tools:</strong> PostgreSQL • DBeaver • Tableau<br />
-<strong>Architecture:</strong> Raw → Clean → Gold (medallion approach)<br>
-<strong>Data Flow:</strong></p>
-<pre style="background-color: var(--color-gray-12); padding: 15px; border-radius: 5px;   box-shadow: 0 0 15px rgba(109, 181, 202, 0.4); /* Soft glow using your color */ font-family: monospace; line-height: 1.5; overflow-x: auto;">
-Raw CSV Files
-    ↓
-Clean Layer (Views: deduplication, validation, type casting)
-    ↓
-Gold Schema (Star schema with materialized aggregations)
-</pre>
 
-<p><strong>Why This Architecture:</strong> The Gold schema ensures
-consistent business definitions across all downstream analysis—mimicking
-the semantic layer approach used by enterprise retail analytics teams.<br>
-Detailed technical documentation <a
-href="https://github.com/ayeshazubair1/retail-shrinkage-optimization/blob/main/data_catalog.md" target="_blank">here.</a><br>
-Downlaod <a href="https://www.hubae.org/datvironment/bibitor/" target="_blank"><strong>Dataset</strong></a><br /></p>
 
-<h2 id="future-analysis-opportunities">Future Analysis
-Opportunities</h2>
-<ol>
-    <li>
-        Incorporate monthly sales trends to calculate dynamic safety stock levels, replacing the fixed 90-day threshold to better manage seasonal demand and holiday volatility.
-    </li> <span class="para-gap"></span>
-    <li>
-        Integrate store-level labor hours and employee turnover data to identify whether high shrinkage rates in specific locations correlate with staffing shortages or gaps in inventory receiving protocols.
-    </li> <span class="para-gap"></span>
-    <li>
-        Investigate the 35K-unit vendor discrepancy using delivery logs and warehouse records to determine if the variance stems from paperwork errors, shipping issues, or physical loss.
-    </li>
-</ol>
-<h2 id="limitations-assumptions">⚠️ Limitations &amp; Assumptions</h2>
-<ol>
-    <li>
-        <strong>Synthetic Dataset:</strong> This project uses a fictional dataset, so operational details like store layouts, staffing levels, cycle-count frequencies, or security logs are unavailable for root-cause analysis.
-    </li> <span class="para-gap"></span>
-    <li>
-        <strong>Temporal Granularity:</strong> Inventory data is limited to annual snapshots (Start-of-Year and End-of-Year), preventing analysis of monthly trends, quarterly fluctuations, or specific out-of-stock periods.
-    </li> <span class="para-gap"></span>
-    <li>
-        <strong>Standardized Sales Velocity:</strong> The Days of Supply (DOS) calculation assumes a steady sales pace year-round — it does not account for holiday spikes or seasonality.
-    </li> <span class="para-gap"></span>
-    <li>
-        <strong>Data-Driven Benchmarks:</strong> The 90-day supply threshold and percentile benchmarks were derived from internal data distribution analysis, serving as logical estimates for business risk where company-defined KPIs were unavailable.
-    </li> <span class="para-gap"></span>
-    <li>
-        <strong>Data Scope:</strong> Only products with recorded sales and inventory movement are included.
-    </li> <span class="para-gap"></span>
-</ol>
 <h2 id="project-structure">📁 Project Structure</h2>
 <pre style="background-color: var(--color-gray-12); padding: 15px; border-radius: 5px;   box-shadow: 0 0 15px rgba(109, 181, 202, 0.4); /* Soft glow using your color */ font-family: monospace; line-height: 1.5; overflow-x: auto;">
 bibitor_llc/
-├── docs
-│   ├── images
-│   ├── results
-│   ├── 01_schema_layers.svg
-│   └── 02_ERD_bibitor_llc.svg
-├── sql
-│   ├── 01_ddl
-│   ├── 02_load
-│   ├── 03_test
-│   ├── 04_analytics
-│   └── db_init.sql
+├── docs/
+├── sql/
 ├── License.txt
 ├── README.md
-├── Retail Shrinkage & Inventory Analysis | Bibitor LLC.twb
+├── dashboard.twb
 └── data_catalog.md
 </pre>
 <h3 id="license">📄 License</h3>
