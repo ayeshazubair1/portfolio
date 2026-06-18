@@ -61,7 +61,8 @@ Shrinkage &amp; Inventory Optimization Analysis — Bibitor LLC</h1> <hr>
     <li><b>$28M</b> in capital tied up in slow-moving inventory</li>
 </ul>
 <p>65% of shrinkage is concentrated in four stores, led by Store 77 and Store 25.<br>
-Vendor fulfillment errors contribute significant variance, including a 35K-unit discrepancy from William Grant & Sons Inc.<br> 
+Vendor fulfillment errors contribute significant variance, including a 35K-unit discrepancy from William Grant & Sons Inc.
+<span class="para-gap"></span>
 <b>View Dashboard</b> <a href="https://public.tableau.com/app/profile/ayeshazubair/viz/RetailShrinkageInventoryAnalysisBibitorLLC/bibitor_dashboard" target="_blank">here</a>.
 </p>
 
@@ -83,7 +84,8 @@ Value</h3>
 <h3
 id="capital-inefficiency-structural-risk">3.
 Capital Inefficiency Represents the Largest Structural Risk: $28M Locked in Slow-Moving Inventory</h3>
-<p>Across the network, 8,198 SKUs exceed 90 days of supply, tying up $28M in working capital. Exposure is highly concentrated — four stores (77, 26, 49, and 25) alone account for $5.5M, with Store 77 alone contributing nearly $2M.<br>
+<p>Across the network, 8,198 SKUs exceed 90 days of supply, tying up $28M in working capital. Exposure is highly concentrated — four stores (77, 26, 49, and 25) alone account for $5.5M, with Store 77 alone contributing nearly $2M.
+    <span class="para-gap"></span>
 <b>Liquidity risk</b> is most severe in Stores 64, 77, 40, and 49, where inventory average days of supply exceed 700 days, indicating prolonged stagnation.</p>
 <p><img src="../images/bibitor_charts/03_excess_inventory.png" width="400" alt="Horizontal bar chart showing stores with most capital tied up in excess inventory"></p>
 <h3
@@ -101,7 +103,8 @@ Geographic Patterns Reveal Distinct Operational Failure Modes</h3>
 <h2 id="recommended-action-plan">Recommended Action Plan</h2>
 <h4 id="1-stabilize-inventory-in-high-risk-stores">1. Stabilize Inventory in High-Risk Stores</h4>
 <h5 id="phase-1-1-critical-stores-immediate-focus-">Phase 1.1 — Critical Stores (Immediate Focus)</h5>
-<p><strong>Target Stores:</strong> 77, 25, 26, 49<br>These stores show overlapping issues in shrinkage, excess inventory, and stock imbalance.<br>
+<p><strong>Target Stores:</strong> 77, 25, 26, 49<br>These stores show overlapping issues in shrinkage, excess inventory, and stock imbalance.
+    <span class="para-gap"></span>
 <strong>Actions:</strong></p>
 <ul>
 <li>Focused full inventory reconciliation for all SKUs</li>
@@ -110,7 +113,8 @@ Geographic Patterns Reveal Distinct Operational Failure Modes</h3>
 <li>Temporarily restrict replenishment for items exceeding 90 days of supply</li>
 </ul>
 <h5 id="phase-1-2-emerging-risk-stores">Phase 1.2 — Emerging Risk Stores</h5>
-<p><strong>Target Stores:</strong> 63, 47, 50, 45<br>These stores show isolated risk signals in shrinkage or inventory imbalance, without compounding failure patterns.<br>
+<p><strong>Target Stores:</strong> 63, 47, 50, 45<br>These stores show isolated risk signals in shrinkage or inventory imbalance, without compounding failure patterns.
+    <span class="para-gap"></span>
 <strong>Actions:</strong></p>
 <ul>
 <li>Apply Phase 1 control framework at reduced frequency</li>
@@ -118,7 +122,8 @@ Geographic Patterns Reveal Distinct Operational Failure Modes</h3>
 <li>Escalate stores showing worsening trends into Phase 1.1</li>
 </ul>
 <h4 id="2-reduce-leakage-in-low-value-items">2. Reduce Leakage in Low-Value Items</h4>
-<p><strong>Target Category:</strong> Low-value SKUs<br>Low-value items are the primary driver of shrinkage by volume.<br>
+<p><strong>Target Category:</strong> Low-value SKUs<br>Low-value items are the primary driver of shrinkage by volume.
+    <span class="para-gap"></span>
 <strong>Actions:</strong></p>
 <ul>
 <li>Strengthen receiving verification for high-volume SKUs</li>
@@ -128,7 +133,8 @@ Geographic Patterns Reveal Distinct Operational Failure Modes</h3>
 </ul>
 <h4 id="3-improve-vendor-delivery-accuracy">3. Improve Vendor Delivery Accuracy</h4>
 <p><strong>Target Area:</strong> High-variance vendors (under/over delivery patterns) 
-Vendor inconsistency is driving both stockouts and excess inventory.<br>
+Vendor inconsistency is driving both stockouts and excess inventory.
+<span class="para-gap"></span>
 <strong>Actions:</strong></p>
 <ul>
 <li>Implement vendor-level tracking (ordered vs received vs billed)</li>
@@ -136,8 +142,20 @@ Vendor inconsistency is driving both stockouts and excess inventory.<br>
 <li>Enforce stricter receiving validation for high-variance suppliers</li>
 <li>Introduce periodic vendor performance reviews based on delivery accuracy</li>
 </ul>
+
 <h2 id="methodology-analytical-approach">Methodology &amp; Analytical Approach</h2>
-<p><strong>1. Performance Optimization:</strong> Materialized views and B-tree indexing were used on large tables (~12M+ records) to speed up queries and pre-aggregate core metrics.<br><strong>2. Data Modeling:</strong> A medallion architecture (Raw → Clean → Gold) was implemented, with a star schema in the Gold layer for consistent analytics.<br><strong>3. Query Design:</strong> CTEs were used to structure multi-step transformations for readability and maintainability.<br><strong>4. Metric Standardization:</strong> A core shrinkage framework was applied across all analysis: unit loss, monetary impact, and percentage impact.<br><strong>5. Weighted Calculations:</strong> Weighted averages were used for pricing metrics to avoid distortion from low-volume transactions.<br><strong>6. Thresholding Approach:</strong> PERCENTILE_CONT was used to derive data-driven risk thresholds in the absence of external benchmarks.<br><strong>7. Risk Segmentation:</strong> Store and product risk tiers were defined using percentile testing (P75–P96) to identify high-risk breakpoints.   </p>
+<p><strong>1. Performance Optimization:</strong> Materialized views and B-tree indexing were used on large tables (~12M+ records) to speed up queries and pre-aggregate core metrics.
+    <span class="para-gap"></span>
+    <strong>2. Data Modeling:</strong> A medallion architecture (Raw → Clean → Gold) was implemented, with a star schema in the Gold layer for consistent analytics.
+    <span class="para-gap"></span>
+    <strong>3. Query Design:</strong> CTEs were used to structure multi-step transformations for readability and maintainability. 
+    <span class="para-gap"></span>
+    <strong>4. Metric Standardization:</strong> A core shrinkage framework was applied across all analysis: unit loss, monetary impact, and percentage impact.
+    <span class="para-gap"></span>
+    <strong>5. Weighted Calculations:</strong> Weighted averages were used for pricing metrics to avoid distortion from low-volume transactions.
+    <span class="para-gap"></span><strong>6. Thresholding Approach:</strong> PERCENTILE_CONT was used to derive data-driven risk thresholds in the absence of external benchmarks.
+    <span class="para-gap"></span><strong>7. Risk Segmentation:</strong> Store and product risk tiers were defined using percentile testing (P75–P96) to identify high-risk breakpoints.   </p>
+
 <h2 id="key-metrics">Key Metrics</h2>
 <table>
 <thead>
@@ -180,18 +198,33 @@ Vendor inconsistency is driving both stockouts and excess inventory.<br>
 </tr>
 </tbody>
 </table>
+
 <h2 id="tech-stack-data-architecture">🛠️ Tech Stack &amp; Data Architecture</h2>
 <p><strong>Tools:</strong> PostgreSQL • DBeaver • Tableau<br><strong>Architecture:</strong> Medallion (Raw → Clean → Gold)</p>
 <pre><code>Raw layer   →  Ingested CSV datasets
 Clean layer →  Deduplication, validation, <span class="hljs-keyword">type</span> <span class="hljs-type">casting
 </span>Gold layer  →  Star schema <span class="hljs-keyword">with</span> materialized aggregations <span class="hljs-keyword">for</span> analytics
-</code></pre><p><strong>Why this setup:</strong> Ensures consistent business definitions across all analyses and enables scalable, fast query performance through pre-aggregated models and a semantic-like Gold layer.<br>Detailed documentation <a href="https://github.com/ayeshazubair1/retail-shrinkage-optimization/blob/main/data_catalog.md" target= "_blank">here</a>   </p>
+</code></pre><p><strong>Why this setup:</strong> Ensures consistent business definitions across all analyses and enables scalable, fast query performance through pre-aggregated models and a semantic-like Gold layer.
+    <span class="para-gap"></span>
+    Detailed documentation <a href="https://github.com/ayeshazubair1/retail-shrinkage-optimization/blob/main/data_catalog.md" target= "_blank">here</a>   </p>
+
 <h2 id="future-analysis-opportunities">Future Analysis Opportunities</h2>
-<p><strong>1-</strong> Add monthly sales trends to calculate dynamic safety stock levels, replacing the fixed 90-day threshold to better handle seasonality and demand spikes.</p>
-<p><strong>2-</strong> Integrate store-level labor and turnover data to assess whether shrinkage correlates with staffing levels or inventory handling gaps.</p>
-<p><strong>3-</strong> Investigate the 35K-unit vendor discrepancy using delivery and warehouse logs to isolate causes such as documentation errors, shipping issues, or physical loss.</p>
+<p><strong>1-</strong> Add monthly sales trends to calculate dynamic safety stock levels, replacing the fixed 90-day threshold to better handle seasonality and demand spikes.
+    <span class="para-gap"></span>
+<strong>2-</strong> Integrate store-level labor and turnover data to assess whether shrinkage correlates with staffing levels or inventory handling gaps.
+<span class="para-gap"></span>
+<strong>3-</strong> Investigate the 35K-unit vendor discrepancy using delivery and warehouse logs to isolate causes such as documentation errors, shipping issues, or physical loss.</p>
+
 <h2 id="-limitations-assumptions"> Limitations &amp; Assumptions</h2>
-<p><strong>1. Synthetic Dataset:</strong> Data is fictional; operational context (store layout, staffing, security, cycle counts) is unavailable for deeper root-cause analysis.<br><strong>2. Temporal Granularity:</strong> Data is limited to annual snapshots (Start-of-Year and End-of-Year), preventing analysis of seasonal or monthly trends.<br><strong>3. Demand Assumption:</strong> Days of Supply assumes constant sales velocity and does not account for seasonality or spikes.<br><strong>4. Thresholding Approach:</strong> Risk thresholds (e.g., 90-day supply, percentiles) are data-driven due to lack of predefined business benchmarks.<br><strong>5. Data Scope:</strong> Only products with recorded sales and inventory movement are included.   </p>
+<p><strong>1. Synthetic Dataset:</strong> Data is fictional; operational context (store layout, staffing, security, cycle counts) is unavailable for deeper root-cause analysis.
+    <span class="para-gap"></span>
+    <strong>2. Temporal Granularity:</strong> Data is limited to annual snapshots (Start-of-Year and End-of-Year), preventing analysis of seasonal or monthly trends.
+    <span class="para-gap"></span>
+    <strong>3. Demand Assumption:</strong> Days of Supply assumes constant sales velocity and does not account for seasonality or spikes.
+    <span class="para-gap"></span>
+    <strong>4. Thresholding Approach:</strong> Risk thresholds (e.g., 90-day supply, percentiles) are data-driven due to lack of predefined business benchmarks.
+    <span class="para-gap"></span>
+    <strong>5. Data Scope:</strong> Only products with recorded sales and inventory movement are included. </p>
 
 
 
