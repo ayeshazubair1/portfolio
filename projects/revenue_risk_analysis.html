@@ -33,10 +33,10 @@
         <ul>
             <li><a href="#business-context">Context</a></li>
             <li><a href="#executive-summary">Summary</a></li>
-            <li><a href="#key-findings-business-implications">Findings</a></li>
+            <li><a href="#key-findings">Findings</a></li>
             <li><a href="#recommended-action-plan">Action Plan</a></li>
             <li><a href="#methodology-analytical-approach">Methodology</a></li>
-            <li><a href="#key-business-metrics">Metrics</a></li>
+            <li><a href="#key-metrics">Metrics</a></li>
             <li><a href="#tech-stack-data-architecture">Tech Stack</a></li>
         </ul>
     </nav>
@@ -46,124 +46,78 @@ id="revenue-risk-customer-dependency-analysis-contoso">
 Revenue Risk & Customer Dependency Analysis — Contoso</h1> <hr>
 
 <h2 id="business-context">Business Context</h2>
-<p>Contoso is a large-scale retail company operating across multiple countries and product categories. Revenue grew from <strong>$88M in 2015</strong> to a peak 
-    of <strong>$444M in 2022</strong>, followed by a noticeable decline—raising concerns around revenue stability, customer retention, and long-term sustainability. 
-Leadership suspects that revenue may be heavily dependent on a relatively small group of high-value customers, creating potential exposure if these 
-customers reduce engagement or churn.</p>
-
+<p>Contoso is a global retail company operating across multiple countries and product categories. Revenue grew from <strong>$88M in 2015</strong> to <strong>$444M in 2022</strong> before declining, raising concerns around customer retention and revenue concentration.
+    <span class="para-gap"></span>
+    Leadership suspects that revenue may be heavily dependent on a relatively small group of high-value customers, creating potential exposure if these customers reduce engagement or churn.</p>
 <blockquote>
-<p><strong>The Challenge:</strong> Assess revenue dependency on high-value customers, detect early risk signals of disengagement, and quantify 
-    how much revenue is exposed to potential churn.</p>
+<p><strong>The Challenge:</strong> Assess dependency on high-value customers, identify early disengagement signals, and quantify revenue exposed to potential churn.</p>
 </blockquote>
 
-<h2 id="executive-summary">🎯 Executive Summary</h2>
-<p> Nearly half of Contoso’s revenue, <strong>43.5%</strong>, comes from just 20% of customers, creating significant concentration risk.
-    <span class="para-gap"></span>
-    Within this segment, nearly half of customers are already inactive, while <strong>1,421 Declining customers represent $78.7M in revenue and $44.2M in 
-    profit</strong> — still within retention reach.
-    <span class="para-gap"></span>
-    The online channel alone holds <strong>$27.1M</strong>—the single largest at-risk exposure. An additional 
-    <strong>18 physical stores carry a combined $34M</strong> in revenue risk, requiring coordinated localized retention action. 
-    <span class="para-gap"></span>
-    Without intervention, retention becomes acquisition — and that cost is never linear.
-</p>
-<h2 id="key-findings-business-implications">Key Findings &amp; Business Implications</h2>
 
-<h3 id="revenue-concentration-dependency-risk">1. Nearly Half of Contoso's Revenue Flows from Just 20% of Customers</h3>
-<p>The top 20% of customers contribute <strong>43.5%</strong> of total revenue and <strong>44.26%</strong> of total profit—concentrated in just one-fifth 
-    of the customer base. Within that group, the top 10% alone account for over a quarter of both.</p>
-<p><strong>Business Implication:</strong> This is dependency, not just concentration. Losing high-value customers would impact revenue immediately and 
-    disproportionately. Retention of this segment is not a marketing priority—it’s a financial risk decision.</p>
+<h2 id="executive-summary">🎯 Executive Summary</h2>
+<p>43.5% of Contoso&#39;s revenue comes from its top 20% of customers, creating significant concentration risk.
+    <span class="para-gap"></span>
+    Within this segment, 49% of customers are already inactive, while <strong>1,421 Declining customers represent $78.7M in revenue and $44.2M in profit</strong>. The online channel alone accounts for <strong>$27.1M</strong> in at-risk revenue, while 18 high-risk physical stores contribute an additional <strong>$34M</strong>.
+    <span class="para-gap"></span>
+Revenue risk is concentrated among a relatively small group of customers, channels, and locations rather than distributed across the business.   </p>
+
+<h2 id="key-findings">Key Findings</h2>
+<h3 id="1-nearly-half-of-contoso-s-revenue-flows-from-just-20-of-customers">1. Nearly Half of Contoso&#39;s Revenue Flows from Just 20% of Customers</h3>
+<p>The top 20% of customers contribute <strong>43.5% of total revenue</strong> and <strong>44.26% of total profit</strong>. Within that group, the top 10% alone account for more than a quarter of both revenue and profit.   </p>
 <p><img src="../images/contoso_charts/01_revenue_concentration.png" width="300" alt="Bar chart showing revenue concentration"></p>
 
-<h3 id="engagement-fragmentation">2. Within the Top 20%, Engagement Is Fragmenting — Not Holding</h3>
-<p>Only <strong>26%</strong> of customers show consistent engagement, while <strong>49%</strong> are classified as Inactive — high spenders averaging 
-    $3,904 AOV who have not purchased in ~462 days. The <strong>Declining segment</strong> (1,421 customers) shows the sharpest recency gap at ~558 days, 
-    despite historically adequate purchase frequency.</p>
-<p><strong>Business Implication:</strong> The majority of high-value customers are either disengaging or already lost. The Consistent segment is being 
-    outnumbered—without intervention, today’s Stable customers will become tomorrow’s Declining ones.</p>
+<h3 id="2-within-the-top-20-engagement-is-fragmenting">2. Within the Top 20%, Engagement Is Fragmenting</h3>
+<p>Only <strong>26%</strong> of high-value customers show consistent engagement, while <strong>49%</strong> are classified as Inactive. The <strong>Declining segment</strong> (1,421 customers) shows the largest recency gap at ~558 days despite historically healthy purchase frequency. </p>
 <p><img src="../images/contoso_charts/02_customer_segment.png" width="300" alt="Horizontal bar chart showing customer segmentation"></p>
 
-<h3 id="recoverable-revenue-window">3. $78M in Revenue Is Still Recoverable — But the Window Is Narrowing</h3>
-<p>Among the top 20% of customers, the Declining segment (1,421 customers) contributes <strong>$78.7M (8.5% of top-customer revenue)</strong> — and they 
-    are still reachable. In contrast, Inactive customers represent <strong>$411M (44.6%)</strong> in historical revenue, indicating a substantial portion 
-    has already been lost.</p>
-<p><strong>Business Implication:</strong> The $78M at risk represents the last actionable retention window. These customers are still within reach—without 
-    intervention, they will transition into fully lost revenue, where recovery becomes acquisition at a significantly higher cost.</p>
+<h3 id="3-78m-in-revenue-is-still-recoverable">3. $78M in Revenue Is Still Recoverable</h3>
+<p>The Declining segment contributes <strong>$78.7M in revenue</strong> and <strong>$44.2M in profit</strong>, representing the largest recoverable opportunity among high-value customers. In contrast, Inactive customers account for <strong>$411M</strong> in historical revenue, indicating a substantial portion has already been lost.</p>
+<h3 id="4-risk-is-concentrated-one-channel-dominates-revenue-exposure">4. Risk Is Concentrated — One Channel Dominates Revenue Exposure</h3>
+<p>The Online channel holds <strong>$27.1M at risk</strong> across 1,420 declining customers, representing <strong>34% of total at-risk revenue</strong>. Eighteen high-risk physical stores contribute an additional <strong>$34M</strong>, but the exposure is distributed across locations rather than concentrated in a single channel.</p>
 
-<h3 id="channel-revenue-exposure">4. Risk Is Concentrated — One Channel Dominates Revenue Exposure</h3>
-<p>At the store level, revenue risk is highly concentrated. The Critical store — Online channel — holds <strong>$27.1M at risk</strong> across 1,420 
-    declining customers, representing <strong>34% of total at-risk revenue</strong>. The 18 High-risk physical stores collectively expose an additional 
-    $34M—larger in total but distributed across locations, making the online channel the most urgent intervention point.</p>
-<p><strong>Business Implication:</strong> The online channel needs immediate digital retention (personalization, reactivation, incentives), while physical
-     stores require coordinated, localized retention efforts. Treating both the same would be ineffective.</p>
 <p><img src="../images/contoso_charts/03_store_risk.png" width="300" alt="Tree map showing store risk"></p>
 
 <h2 id="recommended-action-plan">Recommended Action Plan</h2>
 
-<h3 id="retain-declining-customers">1. Retain Declining High-Value Customers (Immediate)</h3>
-<strong>1,421 customers representing $78.7M</strong> are still recoverable and should be prioritized before full churn.
+<h3 id="1-retain-declining-high-value-customers-immediate-">1. Retain Declining High-Value Customers (Immediate)</h3>
+<p><strong>Target Segment:</strong> 1,421 Declining customers ($78.7M revenue at risk)</p>
 <ul>
-    <li>Start with customers showing the longest inactivity — this is where disengagement is sharpest according to the segmentation</li>
-    <li>Tailor offers based on what they last bought, not generic discounts</li>
-    <li>Gather feedback to understand why they're leaving — price, product, or experience</li>
+<li>Prioritize customers with the longest inactivity periods</li>
+<li>Personalize offers using historical purchase behavior</li>
+<li>Collect feedback to identify drivers of disengagement</li>
+</ul>
+<h3 id="2-treat-online-channel-risk-separately-critical-">2. Treat Online Channel Risk Separately (Critical)</h3>
+<p><strong>Target Area:</strong> Online channel ($27.1M at-risk revenue)</p>
+<ul>
+<li>Segment outreach by inactivity duration</li>
+<li>Prioritize high-spend customers for direct intervention</li>
+<li>Implement dedicated digital retention campaigns</li>
+</ul>
+<h3 id="3-activate-store-level-retention-in-high-risk-locations">3. Activate Store-Level Retention in High-Risk Locations</h3>
+<p><strong>Target Area:</strong> 18 high-risk stores ($34M at-risk revenue)</p>
+<ul>
+<li>Provide store-level lists of at-risk customers to each store manager</li>
+<li>Review purchase history for product availability issues</li>
+<li>Track monthly recovery rates by store</li>
+</ul>
+<h3 id="4-escalate-customer-concentration-risk-to-leadership-strategic-">4. Escalate Customer Concentration Risk to Leadership (Strategic)</h3>
+<p><strong>Target Area:</strong> Customer concentration risk</p>
+<ul>
+<li>Establish monitoring thresholds for top-customer activity</li>
+<li>Reduce long-term dependency through broader customer acquisition</li>
 </ul>
 
-<h3 id="online-channel-risk">2. Treat Online Channel Risk Separately (Critical)</h3>
-The online channel alone holds <strong>$27.1M at risk</strong> across 1,420 declining customers — the single largest at-risk touchpoint.
-<ul>
-    <li>Reach out in stages based on how long each customer has been inactive</li>
-    <li>Focus high-effort outreach on customers spending $3,900+ on average</li>
-    <li>This needs dedicated e-commerce attention — a standard marketing campaign won't be enough</li>
-</ul>
 
-<h3 id="store-level-retention">3. Activate Store-Level Retention in High-Risk Locations</h3>
-<strong>18 physical stores hold $34M at risk</strong> — requiring localized, not network-wide, intervention.
-<ul>
-    <li>Give each store manager a list of at-risk customers filtered by recency and spend</li>
-    <li>Check purchase history for product gaps — customers may be leaving due to stockouts, not disinterest</li>
-    <li>Measure monthly recovery per store before expanding any approach</li>
-</ul>
-
-<h3 id="leadership-escalation">4. Escalate Customer Concentration Risk to Leadership (Strategic)</h3>
-<strong>43.5% of revenue comes from top 20% of customers</strong> is a structural risk, not a marketing problem.
-<ul>
-    <li>Define clear thresholds that trigger a leadership review when top-customer activity drops</li>
-    <li>Set a long-term goal to grow the broader customer base and reduce this dependency</li>
-</ul>
 <h2 id="methodology-analytical-approach">Methodology & Analytical Approach</h2>
-<ol>
-    <li>
-        <strong>Customer Summary Table:</strong> Built as a Materialized View to support all four business questions and improve 
-        query performance.
-    </li>
+<p><strong>1. Customer Summary Table:</strong> Build as materialized view to support all analysis and improve query performance.
     <span class="para-gap"></span>
-    <li>
-        <strong>Customer Ranking:</strong> <code>ROW_NUMBER()</code> was used to rank customers by revenue and profit for Top 10% and
-         Top 20% concentration analysis.
-    </li>
-    <span class="para-gap"></span>
-    <li>
-        <strong>Analytical Views:</strong> Two views were created for consistency and efficiency across questions: 
-        <code>high_value_customers</code> (top 20% by revenue) and <code>at_risk_customers</code> (Declining customer segment).
-    </li>
-    <span class="para-gap"></span>
-    <li>
-        <strong>Data-Driven Segmentation:</strong> <code>PERCENTILE_CONT()</code> was used to analyze distributions and create 
-        data-driven customer and store risk thresholds instead of arbitrary cutoffs.
-    </li>
-    <span class="para-gap"></span>
-    <li>
-        <strong>Recency Reference Logic:</strong> Recency was measured against the latest available date in the <code>Date</code> 
-        table (<strong>Dec 31, 2024</strong>).
-    </li>
-    <span class="para-gap"></span>
-    <li>
-        <strong>Code Modularization:</strong> CTEs were used throughout to keep queries readable, auditable, and maintainable.
-    </li>
-</ol>
+    <strong>2. Customer Ranking:</strong> <code>ROW_NUMBER()</code> used to identify top 10% and top 20% customers by revenue and profit.
+    <span class="para-gap"></span><strong>3. Analytical Views:</strong> <code>high_value_customers</code> (top 20% by revenue) and <code>at_risk_customers</code> (Declining customer segment) standardized downstream analysis.
+    <span class="para-gap"></span><strong>4. Data-Driven Segmentation:</strong> <code>PERCENTILE_CONT()</code> used to derive customer and store risk thresholds.
+    <span class="para-gap"></span><strong>5. Recency Logic:</strong> Recency measured against the latest available date in the dataset (Dec 31, 2024).
+    <span class="para-gap"></span><strong>6. Query Design:</strong> CTEs used to keep transformations modular and auditable.</p>
 
-<h2 id="key-business-metrics">Key Business Metrics</h2>
+<h2 id="key-metrics">Key Metrics</h2>
 <table>
     <colgroup>
         <col style="width: 35%" />
@@ -208,8 +162,7 @@ The online channel alone holds <strong>$27.1M at risk</strong> across 1,420 decl
 
 <h2 id="tech-stack-data-architecture">🛠️ Tech Stack &amp; Data Architecture</h2>
 <p><strong>Tools:</strong> PostgreSQL • DBeaver • Tableau <br>
-<strong>Architecture:</strong> Raw → Clean → Gold → Analysis <br>
-<strong>Data Flow:</strong></p>
+<strong>Architecture:</strong> Raw → Clean → Gold → Analysis</p>
 <pre style="background-color: var(--color-gray-12); padding: 15px; border-radius: 5px;   box-shadow: 0 0 15px rgba(109, 181, 202, 0.4); /* Soft glow using your color */ font-family: monospace; line-height: 1.5; overflow-x: auto;">
 Raw Tables
    ↓
@@ -219,35 +172,22 @@ Gold Layer (<code>customer_summary</code> materialized view)
    ↓
 Analysis Layer (<code>high_value_customers</code>, <code>at_risk_customers</code>)
 </pre>
-
-<p><strong>Why This Architecture:</strong> This layered structure separates raw data from business-ready models, improves query performance, and ensures consistent metrics across all downstream analysis.</p>
-<p>Detailed technical documentation <a href="https://github.com/ayeshazubair1/customer-revenue-concentration/blob/main/data_catalog.md" target="_blank">here.</a><br />
-Download <a href="https://github.com/sql-bi/Contoso-Data-Generator-V2-data/releases/tag/ready-to-use-data" target="_blank"><strong>dataset</strong></a></p>
+<p><strong>Why this setup:</strong> Separates raw data from business-ready model, improves performance, and ensures consistent metrics across analysis.
+<span class="para-gap"></span>
+Detailed documentation <a href="https://github.com/ayeshazubair1/customer-revenue-concentration/blob/main/data_catalog.md" target="_blank">here</a></p>
 
 <h2 id="future-analysis-opportunities">Future Analysis Opportunities</h2>
-<ol>
-    <li>
-        <strong>Root Cause Analysis for Declining Customers:</strong> Investigate why high-value customers are disengaging through customer feedback, complaint logs, or support data.
-    </li>
+<p><strong>1. Root Cause Analysis:</strong> Investigate why high-value customers are disengaging using customer feedback, complaints, or support data.
     <span class="para-gap"></span>
-    <li>
-        <strong>Seasonality & Purchase Behavior Analysis:</strong> Compare declining customer behavior against holidays, promotions, and seasonal demand patterns to determine whether disengagement is temporary or structural.
-    </li>
+    <strong>2. Seasonality Analysis:</strong> Compare declining customer behavior against holidays, promotions, and seasonal demand patterns.
     <span class="para-gap"></span>
-    <li>
-        <strong>Online Channel Deep Dive:</strong> Analyze website performance, cart abandonment, and digital journey friction since the online channel holds the largest risk concentration.
-    </li>
+    <strong>3. Online Channel Analysis:</strong> Assess website performance, cart abandonment, and digital journey friction.
     <span class="para-gap"></span>
-    <li>
-        <strong>Continent-Level Revenue Risk Distribution:</strong> Expand the analysis across all three continents to identify whether revenue concentration and churn risk are regionally isolated or systemic across all markets.     
-    </li>
-    <span class="para-gap"></span>
-    <li>
-        <strong>Inactive Customer Re-Acquisition Strategy:</strong> Assess last purchase behavior, product preferences, and inactivity duration to identify which inactive customers are worth reactivation investment.
-    </li>
-</ol>
+    <strong>4. Regional Risk Analysis:</strong> Evaluate revenue concentration and churn risk across continents.
+    <span class="para-gap"></span><strong>5. Customer Re-Acquisition:</strong> Identify inactive customers with the highest recovery potential. </p>
 
-<h2 id="limitations-assumptions">⚠️ Limitations &amp; Assumptions</h2>
+
+<h2 id="limitations-assumptions">Limitations &amp; Assumptions</h2>
 <ol>
     <li>
         <strong>Partial 2024 Data:</strong> The latest recorded orders end in April 2024. As a result, recency metrics may appear higher because the full year is not represented.
@@ -277,18 +217,11 @@ Download <a href="https://github.com/sql-bi/Contoso-Data-Generator-V2-data/relea
 <h2 id="project-structure">📁 Project Structure</h2>
 <pre style="background-color: var(--color-gray-12); padding: 15px; border-radius: 5px;   box-shadow: 0 0 15px rgba(109, 181, 202, 0.4); /* Soft glow using your color */ font-family: monospace; line-height: 1.5; overflow-x: auto;">
 contoso/
-├── docs
-│   ├── charts
-│   ├── results
-│   └── contoso_ERD.svg
-├── sql
-│   ├── 01_ddl
-│   ├── 02_test
-│   ├── 03_analytics
-│   └── db_init.sql
+├── docs/
+├── sql/
 ├── License.txt
 ├── README.md
-├── contoso_viz.twb
+├── dashboard.twb
 └── data_catalog.md
 </pre>
 <h3 id="license">📄 License</h3>
