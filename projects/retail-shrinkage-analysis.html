@@ -101,7 +101,7 @@ Geographic Patterns Reveal Distinct Operational Failure Modes</h3>
 
 
 <h2 id="recommended-action-plan">Recommended Action Plan</h2>
-<h4 id="1-stabilize-inventory-in-high-risk-stores">1. Stabilize Inventory in High-Risk Stores</h4>
+<h3 id="1-stabilize-inventory-in-high-risk-stores">1. Stabilize Inventory in High-Risk Stores</h3>
 <h5 id="phase-1-1-critical-stores-immediate-focus-">Phase 1.1 — Critical Stores (Immediate Focus)</h5>
 <p><strong>Target Stores:</strong> 77, 25, 26, 49<br>These stores show overlapping issues in shrinkage, excess inventory, and stock imbalance.
     <span class="para-gap"></span>
@@ -121,7 +121,7 @@ Geographic Patterns Reveal Distinct Operational Failure Modes</h3>
 <li>Monitor shrinkage and days-of-supply trends continuously</li>
 <li>Escalate stores showing worsening trends into Phase 1.1</li>
 </ul>
-<h4 id="2-reduce-leakage-in-low-value-items">2. Reduce Leakage in Low-Value Items</h4>
+<h3 id="2-reduce-leakage-in-low-value-items">2. Reduce Leakage in Low-Value Items</h3>
 <p><strong>Target Category:</strong> Low-value SKUs<br>Low-value items are the primary driver of shrinkage by volume.
     <span class="para-gap"></span>
 <strong>Actions:</strong></p>
@@ -131,7 +131,7 @@ Geographic Patterns Reveal Distinct Operational Failure Modes</h3>
 <li>Standardize replenishment and shelf handling processes</li>
 <li>Reduce breakage and misplacement through tighter operational controls</li>
 </ul>
-<h4 id="3-improve-vendor-delivery-accuracy">3. Improve Vendor Delivery Accuracy</h4>
+<h3 id="3-improve-vendor-delivery-accuracy">3. Improve Vendor Delivery Accuracy</h3>
 <p><strong>Target Area:</strong> High-variance vendors (under/over delivery patterns) 
 Vendor inconsistency is driving both stockouts and excess inventory.
 <span class="para-gap"></span>
@@ -201,10 +201,12 @@ Vendor inconsistency is driving both stockouts and excess inventory.
 
 <h2 id="tech-stack-data-architecture">🛠️ Tech Stack &amp; Data Architecture</h2>
 <p><strong>Tools:</strong> PostgreSQL • DBeaver • Tableau<br><strong>Architecture:</strong> Medallion (Raw → Clean → Gold)</p>
-<pre><code>Raw layer   →  Ingested CSV datasets
-Clean layer →  Deduplication, validation, <span class="hljs-keyword">type</span> <span class="hljs-type">casting
-</span>Gold layer  →  Star schema <span class="hljs-keyword">with</span> materialized aggregations <span class="hljs-keyword">for</span> analytics
-</code></pre><p><strong>Why this setup:</strong> Ensures consistent business definitions across all analyses and enables scalable, fast query performance through pre-aggregated models and a semantic-like Gold layer.
+<pre style="background-color: var(--color-gray-12); padding: 15px; border-radius: 5px;   box-shadow: 0 0 15px rgba(109, 181, 202, 0.4); /* Soft glow using your color */ font-family: monospace; line-height: 1.5; overflow-x: auto;">
+Raw layer   →  Ingested CSV datasets 
+Clean layer →  Deduplication, validation, type casting
+Gold layer  →  Star schema with materialized aggregations for analytics
+</pre>
+<p><strong>Why this setup:</strong> Ensures consistent business definitions across all analyses and enables scalable, fast query performance through pre-aggregated models and a semantic-like Gold layer.
     <span class="para-gap"></span>
     Detailed documentation <a href="https://github.com/ayeshazubair1/retail-shrinkage-optimization/blob/main/data_catalog.md" target= "_blank">here</a>   </p>
 
