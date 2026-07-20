@@ -22,6 +22,7 @@
     html {
       color: #1a1a1a;
       background-color: #000000;
+      overflow-x: hidden;
     }
     body {
       margin: 0 auto;
@@ -29,7 +30,7 @@
       padding: 0 50px 50px 50px; /* Removed top padding for the sticky header */
       
       font-family: var(--font-1); /* Public Sans */
-      font-size: 1.06rem;
+      font-size: 1.09rem;
       line-height: var(--vspace-1); /* Using 32px vertical rhythm */
       color: var(--color-gray-4);   /* #515151 about text color */
       
@@ -316,7 +317,7 @@
         position: fixed;
         right: 0.1rem;
         top: 155px; 
-        width: 140px;
+        width: 125px;
         padding: 0.5rem 1rem;
         background-color: transparent;
         border-left: 1px solid var(--color-gray-7);
@@ -351,12 +352,12 @@
 
     .toc ul li {
         margin-bottom: 0.7rem;
-        line-height: 1.2;
+        line-height: 0.9;
     }
 
     .toc ul li a {
         text-decoration: none;
-        font-size: 0.85rem;
+        font-size: 0.90rem;
         color: var(--color-gray-4);
         /* Line added below for smooth movement */
         transition: all 0.3s ease; 
