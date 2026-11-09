@@ -1,201 +1,378 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html lang="en" data-theme="light">
 <head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Retail Shrinkage &amp; Inventory Optimization Analysis — Bibitor LLC</title>
-  
+  <meta name="description" content="Examines inventory shrinkage, excess stock, and vendor discrepancies to identify operational inefficiencies and working capital opportunities.">
+  <link rel="icon" href="../images/icons/favicon.svg" type="image/svg+xml">
+  <script>
+    (function () {
+      var saved = localStorage.getItem('theme');
+      var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      document.documentElement.setAttribute('data-theme', saved || (prefersDark ? 'dark' : 'light'));
+      document.documentElement.classList.add('js');
+    })();
+    </script>
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/main.css">
   <link rel="stylesheet" href="../css/project.css">
-  
 </head>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-<body>
-<header class="project-header">
-    <a href="../index.html#works" class="back-btn">
-        <i class="fa-solid fa-arrow-left"></i> Go Back
-    </a>
+<body class="no-js">
+  <a href="#main" class="skip-link">Skip to content</a>
 
-    <div class="github-container">
-        <a href="https://github.com/ayeshazubair1/retail-shrinkage-optimization" target="_blank" class="github-badge-link">
-            <img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub" />
-        </a>
+  <div class="nav-overlay" id="navOverlay"></div>
+  <button class="nav-burger" id="navBurger" aria-label="Open navigation" aria-expanded="false">
+    <span></span>
+  </button>
+
+  <nav class="nav-rail" id="navRail" aria-label="Primary navigation">
+    <button class="mobile-close" id="navClose" aria-label="Close navigation">&times;</button>
+    <div class="nav-identity">
+      <a href="../index.html" style="text-decoration:none;color:inherit;">
+        <div class="nav-name">Ayesha Zubair</div>
+        <div class="nav-role">Data Analyst</div>
+      </a>
     </div>
-</header>
-<!-- TOC -->
-<div id="toc-container">
-    <button id="toc-toggle" title="Toggle Table of Contents">
-        <i class="fa-solid fa-ellipsis-vertical open-icon"></i>
-        <i class="fa-solid fa-xmark close-icon" style="display: none;"></i>
+    <ul class="nav-list">
+      <li><a href="../index.html#about"><span class="nav-num">01</span>About</a></li>
+      <li><a href="../index.html#work"><span class="nav-num">02</span>Recent Work</a></li>
+      <li><a href="../index.html#skills"><span class="nav-num">03</span>Skills</a></li>
+      <li><a href="../index.html#contact"><span class="nav-num">04</span>Contact</a></li>
+    </ul>
+    <div class="nav-spacer"></div>
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle color theme">
+      <span class="icon-wrap">
+        <svg class="sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+        <svg class="moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </span>
+      <span class="toggle-label">Theme</span>
     </button>
-    <nav class="toc" id="toc-menu">
-        <h3>Contents</h3>
-        <ul>
-            <li><a href="#business-context">Context</a></li>
-            <li><a href="#executive-summary">Summary</a></li>
-            <li><a href="#key-findings">Findings</a></li>
-            <li><a href="#recommendations">Recommendations</a></li>
-            <li><a href="#limitations-assumptions">Limitations</a></li>
-        </ul>
-    </nav>
-</div> <!-- end TOC -->
+  </nav>
 
-<h1 id="retail-shrinkage-inventory-optimization-analysis-bibitor-llc">Retail Shrinkage &amp; Inventory Optimization Analysis — Bibitor LLC</h1><hr>
+  <main id="main" class="project-page">
+    <div class="app">
 
-<h2 id="business-context">Business Context</h2>
-<p>Bibitor LLC operates ~80 wine and spirits stores across Lincoln, generating $420–450M in annual sales with $300–350M COGS. Despite strong revenue, 
-    the company faces rising shrinkage and inventory imbalance across stores, with some locations overstocked while others frequently run out of 
-    high-demand products.</p>
+      <!-- Utility row -->
+      <div class="util-row">
+        <a href="../index.html#work" class="back-link" id="backLink">
+          <svg viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+          Back to Work
+        </a>
+        <a href="https://github.com/ayeshazubair1/retail-shrinkage-optimization" class="repo-btn" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+          View Repository
+        </a>
+      </div>
 
-<blockquote>
-<p><strong>The Challenge:</strong> Identify where inventory is disappearing, what's tying up capital, and the operational issues behind both.</p>
-</blockquote>
+      <!-- Mobile TOC -->
+      <button class="toc-toggle" id="tocToggle" aria-expanded="false">
+        <span>Contents</span>
+        <svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+      </button>
+      <div class="toc-mobile" id="tocMobile">
+        <ul class="toc-list" id="tocMobileList"></ul>
+      </div>
 
-<h2 id="executive-summary">Executive Summary</h2>
-<p>
-    <b>Bibitor LLC faces two major operational challenges:</b> inventory shrinkage and excess inventory.
-<span class="para-gap"></span>
-    This analysis identified approximately $199K in annual shrinkage losses and $28M in working capital tied up in slow-moving inventory, 
-    reducing profitability and operational efficiency. 
-<span class="para-gap"></span>
-    <b>Shrinkage is highly concentrated</b>, with 65% of total losses occurring in just four stores, while vendor delivery inconsistencies further contribute 
-    to inventory imbalances. These findings indicate that targeted improvements in high-risk stores, inventory controls, and vendor management are likely to 
-    deliver the greatest business impact.   
-</p>
+      <div class="doc-layout">
+        <!-- Article -->
+        <article class="doc-article">
+          <h1 class="proj-title">Retail Shrinkage &amp; Inventory Optimization Analysis — Bibitor LLC</h1>
 
-<hr>
-
-<h2 id="key-findings">Key Findings</h2>
-
-<h4 id="shrinkage-is-highly-concentrated-four-stores-drive-nearly-two-thirds-of-total-loss">
-    1. Shrinkage Is Highly Concentrated: Four Stores Drive Nearly Two-Thirds of Total Loss</h4>
-<p>Four locations account for <b>65% of total annual shrinkage</b> ($200K), split into $94K direct cost and $35K lost margin. <b>Store 77 is the 
-    highest-risk location</b> at $53K in exposure, likely amplified by its large SKU assortment.    <span class="para-gap"></span>
-    This concentration indicates that focusing resources on a handful of stores is likely to deliver the greatest reduction in losses.</p>
-<p><img src="../images/bibitor_charts/01_store_shrinkage.png" width="400" alt="Vertical bar chart showing financial loss from shrinkage"></p>
-
-<h4 id="operational-leakage-dominates-low-value-items-drive-88-of-shrinkage-value">
-    2. Operational Leakage Dominates: Low-Value Items Drive 88% of Shrinkage Value</h4>
-<p>Low-value items account for <b>88% of total shrinkage</b> ($233K of $264K), driven by transaction volume rather than unit price. High-value items show 
-    higher per-unit loss rates but minimal contribution to total loss.    <span class="para-gap"></span>
-This suggests operational process failures, rather than theft of high-value items, are the primary driver of shrinkage.</p>
-<p><img src="../images/bibitor_charts/02_value_tier.png" width="400" alt="Vertical bar chart showing monetary loss by product category"></p>
-
-<h4 id="capital-inefficiency-structural-risk"> 3.Capital Inefficiency Represents the Largest Structural Risk: $28M Locked in Slow-Moving Inventory</h4>
-<p>Across the network, 8,198 SKUs exceed 90 days of supply, tying up $28M in working capital. Inventory is highly concentrated — four stores (77, 26, 49, 
-    and 25) alone account for $5.5M, with Store 77 alone contributing nearly $2M.<br>
-<b>Stores 64, 77, 40, and 49 each hold more than 700 days of inventory</b>, indicating severe overstock and slow inventory turnover.    <span class="para-gap"></span>
-Reducing excess inventory would improve cash flow, free working capital, and lower the risk of inventory becoming obsolete.</p>
-<p><img src="../images/bibitor_charts/03_excess_inventory.png" width="400" alt="Horizontal bar chart showing stores with most capital tied up in excess inventory"></p>
-
-<h4 id="vendor-delivery-inaccuracies-create-systemic-stock-imbalances">4. Vendor Delivery Inaccuracies Create Systemic Stock Imbalances</h4>
-<p>Inventory variance is concentrated among specific vendors rather than distributed randomly. William Grant & Sons Inc shows cumulative under-deliveries 
-    exceeding 35K units, while Alisa Carr Beverages over-delivered by approximately 65% relative to orders. These patterns are consistent across multiple 
-    products, indicating persistent fulfillment errors.    <span class="para-gap"></span>
-Addressing a small number of high-variance vendors could significantly improve inventory accuracy across the network.</p>
-<p><img src="../images/bibitor_charts/04_vendor_variance.png" width="450" alt="Diverging bar chart showing vendor fulfillment accuracy"></p>
-
-<h4 id="geographic-patterns-reveal-distinct-operational-failure-modes">5. Geographic Patterns Reveal Distinct Operational Failure Modes</h4>
-<p>Losses cluster geographically, with Store 77 (Mountmend) and Store 25 (Paentmarwy) accounting for $64K+ in shrinkage. In contrast, Stores 49 
-    (Eanverness) and 40 (Pitmerden) show significant overstock relative to recorded deliveries, indicating localized receiving and inventory control 
-    failures.<span class="para-gap"></span>
-The differing patterns across stores indicate that a single company-wide solution is unlikely to be effective; interventions should be tailored by location.</p>
-<p><img src="../images/bibitor_charts/05_location_risk.png" width="450" alt="Diverging bar chart showing financial discrepancies"></p>
-
-<hr>
-
-<h2 id="recommendations">Recommendations</h2>
-<h3 id="1-stabilize-inventory-in-high-risk-stores">1. Stabilize Inventory in High-Risk Stores</h3>
-<h5 id="phase-1-1-critical-stores-immediate-focus-">Phase 1.1 — Critical Stores (Immediate Focus)</h5>
-<p><strong>Target Stores:</strong> 77, 25, 26, 49<br>These stores show overlapping issues in shrinkage, excess inventory, and stock imbalance.
-    <span class="para-gap"></span>
-<strong>Actions:</strong></p>
-<ul>
-<li>Focused full inventory reconciliation for all SKUs</li>
-<li>Tighten receiving and stock movement controls</li>
-<li>Introduce frequent cycle counts for high-variance SKUs</li>
-<li>Temporarily restrict replenishment for items exceeding 90 days of supply</li>
-</ul>
-<h5 id="phase-1-2-emerging-risk-stores">Phase 1.2 — Emerging Risk Stores</h5>
-<p><strong>Target Stores:</strong> 63, 47, 50, 45<br>These stores show isolated risk signals in shrinkage or inventory imbalance, without compounding failure patterns.
-    <span class="para-gap"></span>
-<strong>Actions:</strong></p>
-<ul>
-<li>Apply Phase 1 control framework at reduced frequency</li>
-<li>Monitor shrinkage and days-of-supply trends continuously</li>
-<li>Escalate stores showing worsening trends into Phase 1.1</li>
-</ul>
-<h3 id="2-reduce-leakage-in-low-value-items">2. Reduce Leakage in Low-Value Items</h3>
-<p><strong>Target Category:</strong> Low-value SKUs<br>Low-value items are the primary driver of shrinkage by volume.
-    <span class="para-gap"></span>
-<strong>Actions:</strong></p>
-<ul>
-<li>Strengthen receiving verification for high-volume SKUs</li>
-<li>Increase cycle count frequency for discrepancy-prone items</li>
-<li>Standardize replenishment and shelf handling processes</li>
-<li>Reduce breakage and misplacement through tighter operational controls</li>
-</ul>
-<h3 id="3-improve-vendor-delivery-accuracy">3. Improve Vendor Delivery Accuracy</h3>
-<p><strong>Target Area:</strong> High-variance vendors (under/over delivery patterns) 
-Vendor inconsistency is driving both stockouts and excess inventory.
-<span class="para-gap"></span>
-<strong>Actions:</strong></p>
-<ul>
-<li>Implement vendor-level tracking (ordered vs received vs billed)</li>
-<li>Flag vendors exceeding variance thresholds</li>
-<li>Enforce stricter receiving validation for high-variance suppliers</li>
-<li>Introduce periodic vendor performance reviews based on delivery accuracy</li>
-</ul>
-
-<hr>
-
-<h2 id="limitations-assumptions"> Limitations &amp; Assumptions</h2>
-<p><strong>1. Synthetic Dataset:</strong> Data is fictional; operational context (store layout, staffing, security, cycle counts) is unavailable for deeper root-cause analysis.
-    <span class="para-gap"></span>
-    <strong>2. Temporal Granularity:</strong> Data is limited to annual snapshots (Start-of-Year and End-of-Year), preventing analysis of seasonal or monthly trends.
-    <span class="para-gap"></span>
-    <strong>3. Demand Assumption:</strong> Days of Supply assumes constant sales velocity and does not account for seasonality or spikes.
-    <span class="para-gap"></span>
-    <strong>4. Thresholding Approach:</strong> Risk thresholds (e.g., 90-day supply, percentiles) are data-driven since no predefined business benchmarks exist.
-</p>
-
-<hr>
-
-<b>View Dashboard</b> <a href="https://public.tableau.com/app/profile/ayeshazubair/viz/RetailShrinkageInventoryAnalysisBibitorLLC/bibitor_dashboard" target="_blank">here</a><br>
-<b>View Technical Documentation</b> <a href="https://github.com/ayeshazubair1/retail-shrinkage-optimization/blob/main/technical_documentation.md" target="_blank">here</a>
-
-<footer class="s-footer">
-
-            <div class="row">
-                <div class="column ss-copyright">
-                    <span>© 2026 AYESHA ZUBAIR</span> 
-                </div>
+          <div class="proj-meta">
+            <div class="meta-item">
+              <span class="meta-value">Tools</span>
+              <span class="meta-label">PostgreSQL, Tableau</span>
             </div>
-        </footer> <!-- end s-footer -->
+            <div class="meta-item">
+              <span class="meta-value">Duration</span>
+              <span class="meta-label">Feb 2026 - Apr 2026</span>
+            </div>
+          </div>
 
-        <!-- TOC toggle-->
-<script>
-    // Wait for the DOM to be fully loaded
-    document.addEventListener('DOMContentLoaded', function() {
-        const tocToggle = document.getElementById('toc-toggle');
-        const tocMenu = document.getElementById('toc-menu');
-        const openIcon = document.querySelector('.open-icon');
-        const closeIcon = document.querySelector('.close-icon');
+            <h2 id="business-context">Business Context</h2>
+            <p>
+              Bibitor LLC operates ~80 wine and spirits stores across the state of Lincoln, generating $420–450M in annual sales with $300–350M COGS. Despite strong revenue,
+              the company faces rising shrinkage and inventory imbalance across stores, with some locations overstocked while others frequently run out of high-demand products.
+            </p>
 
-        tocToggle.addEventListener('click', function() {
-            // Toggle the hidden class
-            const isNowHidden = tocMenu.classList.toggle('is-hidden');
-            
-            // Swap icons based on state
-            if (isNowHidden) {
-                openIcon.style.display = 'inline-block';
-                closeIcon.style.display = 'none';
-            } else {
-                openIcon.style.display = 'none';
-                closeIcon.style.display = 'inline-block';
-            }
-        });
-    });
-</script>        <!-- end TOC toggle-->
+            <div class="highlight-callout">
+            <p><strong>The Challenge:</strong> Identify where inventory is disappearing, what's tying up capital, and the operational issues behind both.</p>
+            </div>
+
+          <h2 id="executive-summary">Executive Summary</h2>
+              <p><strong>Bibitor LLC faces two major operational challenges:</strong> inventory shrinkage and excess inventory.</p>
+              <p>This analysis identified <strong>$199.6K in positive revenue-loss estimates</strong> across 41 stores, alongside <strong>$28M in working capital tied up in slow-moving inventory</strong> across 8,198 SKUs.</p>
+              <p><strong>Shrinkage is highly concentrated</strong>, with four stores accounting for 65% of the positive revenue-loss estimates. Meanwhile, inventory imbalances and vendor-associated quantity variances highlight additional areas requiring attention across the retail network.    </p>
+              <p>These findings point to opportunities to strengthen inventory controls, improve stock allocation, reduce excess inventory, and introduce more robust receiving and reconciliation processes.</p>
+
+            <h2 id="key-findings">Key Findings</h2>
+
+            <h3 id="shrinkage-is-highly-concentrated-four-stores-drive-nearly-two-thirds-of-total-loss">1. Shrinkage Is Highly Concentrated: Four Stores Drive Nearly Two-Thirds of Total Loss</h3>
+            <ul>
+              <li>Four stores (77, 25, 63, and 47) account for <strong>65% of positive revenue-loss estimates, totaling $129.4K.</strong> This comprises $94.6K in estimated cost loss and $34.8K in estimated gross margin loss. </li>
+              <li><strong>Store 77 represents the highest exposure</strong>, with $53K in estimated loss, potentially influenced by its larger SKU assortment.    </li>
+              <li>This concentration suggests that prioritizing a small number of high-risk stores could deliver the greatest impact on inventory control.</li>
+            </ul>
+
+            <figure>
+                <div class="chart-wrap">
+                  <svg viewBox="0 10 640 310" role="img" aria-labelledby="storeLoss-title storeLoss-desc">
+                    <title id="storeLoss-title">Financial loss from shrinkage by store</title>
+                    <desc id="storeLoss-desc">Vertical bar chart of shrinkage loss by store. Critical stores: store 77 at $53K and store 25 at $34K. High impact stores: store 63 at $22K and store 47 at $20K.</desc>
+
+                    <!-- legend -->
+                    <g font-family="var(--font-body)" font-size="12" fill="var(--text-secondary)">
+                      <rect x="250" y="20" width="12" height="12" rx="2" fill="var(--accent)" opacity="0.8"/>
+                      <text x="270" y="30">Critical</text>
+                      <rect x="340" y="20" width="12" height="12" rx="2" fill="var(--accent)" opacity="0.35"/>
+                      <text x="360" y="30">High impact</text>
+                    </g>
+
+                    <!-- baseline -->
+                    <line x1="70" y1="260" x2="610" y2="260" stroke="var(--border-strong)" stroke-width="1"/>
+
+                    <!-- bars -->
+                    <g fill="var(--accent)">
+                      <rect x="102" y="83"  width="70" height="177" opacity="0.8"  rx="2"/>
+                      <rect x="237" y="147" width="70" height="113" opacity="0.8"  rx="2"/>
+                      <rect x="372" y="187" width="70" height="73"  opacity="0.35" rx="2"/>
+                      <rect x="507" y="193" width="70" height="67"  opacity="0.35" rx="2"/>
+                    </g>
+
+                    <!-- value labels -->
+                    <g font-family="var(--font-mono)" font-size="12" fill="var(--text-muted)" text-anchor="middle">
+                      <text x="137" y="75">$53K</text>
+                      <text x="272" y="139">$34K</text>
+                      <text x="407" y="179">$22K</text>
+                      <text x="542" y="185">$20K</text>
+                    </g>
+
+                    <!-- x-axis labels -->
+                    <g font-family="var(--font-body)" font-size="12" fill="var(--text-secondary)" text-anchor="middle">
+                      <text x="137" y="280">77</text>
+                      <text x="272" y="280">25</text>
+                      <text x="407" y="280">63</text>
+                      <text x="542" y="280">47</text>
+                    </g>
+                    <text x="340" y="306" text-anchor="middle" font-family="var(--font-body)" font-size="11" fill="var(--text-muted)">Store ID</text>
+                  </svg>
+                </div>
+                <figcaption>Financial loss from shrinkage by store.</figcaption>
+              </figure>
+
+            <h3 id="operational-leakage-dominates-low-value-items-drive-88-of-shrinkage-value">2. Operational Leakage Dominates: Low-Value Items Drive 88% of Shrinkage Value</h3>
+            <ul>
+              <li>Low-value items account for <strong>88% of total shrinkage value</strong> ($234K of $264K), driven by transaction volume rather than unit price. </li>
+              <li>High-value items show higher per-unit loss rates but contribute less to total shrinkage.    </li>
+              <li>This highlights the importance of strengthening controls around high-volume, low-value products, where small discrepancies can accumulate into significant financial exposure.</li>
+            </ul>
+
+            <figure>
+              <div class="chart-wrap">
+                <svg viewBox="0 55 640 265" role="img" aria-labelledby="valueTier-title valueTier-desc">
+                  <title id="valueTier-title">Monetary loss by product category</title>
+                  <desc id="valueTier-desc">Vertical bar chart of monetary loss by product value tier. Low value products account for $234K and high value products for $31K.</desc>
+
+                  <!-- baseline -->
+                  <line x1="70" y1="260" x2="610" y2="260" stroke="var(--border-strong)" stroke-width="1"/>
+
+                  <!-- bars -->
+                  <g fill="var(--accent)">
+                    <rect x="205" y="83"  width="100" height="177" opacity="0.7" rx="2"/>
+                    <rect x="375" y="235" width="100" height="25"  opacity="0.4" rx="1"/>
+                  </g>
+
+                  <!-- value labels -->
+                  <g font-family="var(--font-mono)" font-size="12" fill="var(--text-muted)" text-anchor="middle">
+                    <text x="255" y="75">$234K</text>
+                    <text x="425" y="228">$31K</text>
+                  </g>
+
+                  <!-- x-axis labels -->
+                  <g font-family="var(--font-body)" font-size="12" fill="var(--text-secondary)" text-anchor="middle">
+                    <text x="255" y="280">Low value</text>
+                    <text x="425" y="280">High value</text>
+                  </g>
+                  <text x="340" y="306" text-anchor="middle" font-family="var(--font-body)" font-size="11" fill="var(--text-muted)">Product category</text>
+                </svg>
+              </div>
+              <figcaption>Monetary loss by product category.</figcaption>
+            </figure>
+
+            <h3 id="capital-inefficiency-structural-risk">3. Capital Inefficiency Represents the Largest Structural Risk: $28M Locked in Slow-Moving Inventory</h3>
+            <ul>
+              <li>Across the network, 8,198 SKUs exceed 90 days of supply, tying up $28M in working capital. Inventory is highly concentrated: four stores (77, 26, 49, and 25) account for $5.5M, with Store 77 alone contributing nearly $2M.    </li>
+              <li><strong>Stores 64, 77, 40, and 49 each hold more than 700 days of inventory</strong>, indicating substantial excess stock relative to sales velocity.     </li>
+              <li>Reducing slow-moving inventory could improve cash flow, free working capital, and lower the risk of inventory becoming obsolete.</li>
+            </ul>
+
+            <figure>
+                <div class="chart-wrap">
+                  <svg viewBox="100 20 640 230" role="img" aria-labelledby="excess-title excess-desc">
+                    <title id="excess-title">Stores with the most capital tied up in excess inventory</title>
+                    <desc id="excess-desc">Horizontal bar chart of capital tied up in excess inventory by store. Store 77 leads at $2.0M, followed by store 25 at $1.3M, store 26 at $1.1M and store 49 at $1.1M.</desc>
+
+                    <!-- vertical axis line -->
+                    <line x1="280" y1="40" x2="280" y2="230" stroke="var(--border-strong)" stroke-width="1"/>
+
+                    <!-- y-axis labels -->
+                    <g font-family="var(--font-body)" font-size="12" fill="var(--text-secondary)" text-anchor="end">
+                      <text x="270" y="68">Store 77</text>
+                      <text x="270" y="116">Store 25</text>
+                      <text x="270" y="164">Store 26</text>
+                      <text x="270" y="212">Store 49</text>
+                    </g>
+
+                    <!-- bars -->
+                    <g fill="var(--accent)">
+                      <rect x="280" y="50"  width="300" height="28" opacity="0.7"  rx="2"/>
+                      <rect x="280" y="98"  width="195" height="28" opacity="0.55" rx="2"/>
+                      <rect x="280" y="146" width="165" height="28" opacity="0.4"  rx="2"/>
+                      <rect x="280" y="194" width="165" height="28" opacity="0.4"  rx="2"/>
+                    </g>
+
+                    <!-- value labels -->
+                    <g font-family="var(--font-mono)" font-size="12" fill="var(--text-muted)" text-anchor="start">
+                      <text x="588" y="68">$2.0M</text>
+                      <text x="483" y="116">$1.3M</text>
+                      <text x="453" y="164">$1.1M</text>
+                      <text x="453" y="212">$1.1M</text>
+                    </g>
+                  </svg>
+                </div>
+                <figcaption>Stores with the most capital tied up in excess inventory.</figcaption>
+              </figure>
+
+            <h3 id="vendor-delivery-inaccuracies-create-systemic-stock-imbalances">4. Vendor Delivery Inaccuracies Create Systemic Stock Imbalances</h3>
+            <ul>
+              <li>Inventory variance is concentrated among specific vendors rather than distributed randomly. </li>
+              <li>William Grant &amp; Sons Inc showed a cumulative negative variance exceeding 35K units, while Alisa Carr Beverages showed a positive variance of approximately 65% relative to recorded purchases.    </li>
+              <li>Addressing a small number of high-variance vendors could significantly improve inventory accuracy across the network.</li>
+            </ul>
+
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Vendor Name</th>
+                    <th>Variance %</th>
+                    <th>Rank</th>
+                    <th>Delivery Profile</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td>Alisa Carr Beverages</td><td class="num">65.35</td><td class="num">1</td><td>Over delivered</td></tr>
+                  <tr><td>R.P. Imports Inc</td><td class="num">43.02</td><td class="num">2</td><td>Over delivered</td></tr>
+                  <tr><td>Circa Wines</td><td class="num">21.84</td><td class="num">3</td><td>Over delivered</td></tr>
+                  <tr><td>William Grant &amp; Sons Inc</td><td class="num">-14.44</td><td class="num">1</td><td>Under delivered</td></tr>
+                  <tr><td>The Imported Grape LLC</td><td class="num">-13.60</td><td class="num">2</td><td>Under delivered</td></tr>
+                  <tr><td>Sea Breeze Cellars LLC</td><td class="num">-9.66</td><td class="num">3</td><td>Under delivered</td></tr>
+                </tbody>
+              </table>
+            </div>
+
+            <h3 id="geographic-patterns-reveal-distinct-operational-failure-modes">5. Geographic Patterns Reveal Distinct Operational Failure Modes</h3>
+            <ul>
+              <li>Store-level inventory calculations identified locations with positive and negative inventory variances.     </li>
+              <li>Stores 77, 25, and 63 recorded the highest positive estimated discrepancies, valued at $39K, $25K, and $16K, respectively. In contrast, Stores 49, 26, and 40 showed the largest negative estimated variances, valued at approximately $6.2K, $4.5K, and $3.4K.     </li>
+              <li>These contrasting patterns suggest that inventory control and reconciliation priorities may differ across locations, supporting a more targeted approach to operational improvements.</li>
+            </ul>
+
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Store ID</th>
+                    <th>City</th>
+                    <th>Cost Loss</th>
+                    <th>Risk Rank</th>
+                    <th>Risk Type</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td class="num">77</td><td>Mountmend</td><td class="num">38.9K</td><td class="num">1</td><td>Loss</td></tr>
+                  <tr><td class="num">25</td><td>Paentmarwy</td><td class="num">25.1K</td><td class="num">2</td><td>Loss</td></tr>
+                  <tr><td class="num">63</td><td>Larnwick</td><td class="num">15.9K</td><td class="num">3</td><td>Loss</td></tr>
+                  <tr><td class="num">49</td><td>Eanverness</td><td class="num">-6.2K</td><td class="num">1</td><td>Overstock</td></tr>
+                  <tr><td class="num">26</td><td>Mountmend</td><td class="num">-4.5K</td><td class="num">2</td><td>Overstock</td></tr>
+                  <tr><td class="num">40</td><td>Pitmerden</td><td class="num">-3.4K</td><td class="num">3</td><td>Overstock</td></tr>
+                </tbody>
+              </table>
+            </div>
+
+            <h2 id="recommendations">Recommendations</h2>
+            <h3 id="1-stabilize-inventory-in-high-risk-stores">1. Stabilize Inventory in High-Risk Stores</h3>
+                <ul>
+                <li><strong>Critical stores (77, 25, 26, 49):</strong> Address overlapping shrinkage and excess-inventory signals through full inventory reconciliation, tighter receiving controls, frequent cycle counts, and temporary replenishment restrictions for SKUs exceeding 90 days of supply.</li>
+                <li><strong>Emerging-risk stores (63, 47, 50, 45):</strong> Apply the same control framework at a lower frequency and monitor inventory trends for worsening performance.</li>
+                </ul>
+                <h3 id="2-reduce-leakage-in-low-value-items">2. Reduce Leakage in Low-Value Items</h3>
+                <p><strong>Target:</strong> High-volume, low-value SKUs.</p>
+                <ul>
+                <li>Strengthen receiving verification and cycle counting for discrepancy-prone products.</li>
+                <li>Standardize replenishment and shelf-handling processes.</li>
+                <li>Reduce breakage and misplacement through tighter operational controls.</li>
+                </ul>
+                <h3 id="3-improve-vendor-delivery-accuracy">3. Improve Vendor Delivery Accuracy</h3>
+                <p><strong>Target:</strong> Vendors identified through the original quantity variance analysis.</p>
+                <ul>
+                <li>Track ordered, received, and billed quantities to improve reconciliation accuracy.</li>
+                <li>Introduce variance thresholds to flag unusual quantity differences.</li>
+                <li>Conduct periodic vendor performance reviews using verified delivery records.</li>
+                </ul>
+
+
+            <h2 id="limitations-assumptions"> Limitations &amp; Assumptions</h2>
+            <ol>
+              <li><strong>Synthetic Dataset:</strong> Data is fictional; operational context such as store layout, staffing, security, and cycle counts is unavailable for deeper root-cause analysis.</li>
+              <li><strong>Temporal Granularity:</strong> Data is limited to annual snapshots (Start-of-Year and End-of-Year), preventing analysis of seasonal or monthly trends.</li>
+              <li><strong>Demand Assumption:</strong> Days of Supply assumes constant sales velocity and does not account for seasonality or spikes.</li>
+              <li><strong>Thresholding Approach:</strong> Risk thresholds (e.g., 90-day supply, percentiles) are data-driven since no predefined business benchmarks exist.</li>
+            </ol>
+
+            <h2 id="other-resources">Other Resources</h2>
+            <a href="https://public.tableau.com/app/profile/ayeshazubair/viz/RetailShrinkageInventoryAnalysisBibitorLLC/bibitor_dashboard" class="arrow-link" target="_blank" rel="noopener">
+              Dashboard
+              <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a><br>
+            <a href="https://github.com/ayeshazubair1/retail-shrinkage-optimization/blob/main/technical_documentation.md" class="arrow-link" target="_blank" rel="noopener">
+              Technical Documentation
+              <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+
+          <!-- Footer nav -->
+          <div class="proj-footer">
+            <a href="revenue-risk-analysis.html">
+              <svg viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+              Previous Project
+            </a>
+            <a href="../index.html#work">
+              Back to Work
+              <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+        </article>
+
+        <!-- TOC sidebar -->
+        <aside class="toc" aria-label="Table of contents">
+          <div class="toc-label">Contents</div>
+          <ul class="toc-list" id="tocList"></ul>
+        </aside>
+      </div>
+
+      <footer class="footer">
+        <div class="footer-row">
+          <span class="footer-copy">&copy; <span id="year">2026</span> Ayesha Zubair. All rights reserved.</span>
+        </div>
+      </footer>
+
+    </div>
+  </main>
+
+  <script src="../js/project.js" defer></script>
 </body>
 </html>

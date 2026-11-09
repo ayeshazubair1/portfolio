@@ -1,12 +1,29 @@
-## 🌐 Portfolio Website
+# Ayesha Zubair — Portfolio
 
-Personal <a href="https://ayeshazubair1.github.io/portfolio/" target="_blank">portfolio website</a> showcasing my data analytics project documentation designed for non-technical audiences, with links to the corresponding GitHub repositories containing the source code and datasets.
+A personal portfolio showcasing selected projects, their analytical approach, and key findings. The website presents project work in a clear format for both technical and non-technical audiences.
+
+**Live Website:** [Ayesha Zubair — Data Analyst](https://ayeshazubair1.github.io/portfolio/)
+
+### Repository Structure
+
+```text
+.
+├── index.html
+├── projects/
+├── css/
+├── js/
+├── images/
+├── 404.html
+├── AyeshaZubair-Resume.pdf
+└── README.md
+```
+
+### Built With
 
 - HTML
 - CSS
 - JavaScript
 
----
+### Acknowledgements
 
-#### Template Credit
-Design template originally sourced from <a href="https://styleshout.com/" target="_blank" rel="noopener noreferrer">StyleShout</a> and customized.
+Initial website structure and implementation developed with assistance from [Bolt.new](https://bolt.new/). Subsequently redesigned, customized, and refined.

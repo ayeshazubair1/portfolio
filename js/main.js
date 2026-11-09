@@ -1,375 +1,202 @@
-/* ===================================================================
- * portfolio_web 1.0.0 - Main JS
- * ------------------------------------------------------------------ */
+/* ===========================================================
+   Main JS — loader, theme, nav, scroll reveals, headline
+   =========================================================== */
+(function () {
+  "use strict";
 
-(function(html) {
+  var root = document.documentElement;
 
-    "use strict";
+  // Enable JS enhancements
+  document.body.classList.remove("no-js");
 
-    html.className = html.className.replace(/\bno-js\b/g, '') + ' js ';
+  var prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-   /* Animations
-    * -------------------------------------------------- */
-    const tl = anime.timeline( {
-        easing: 'easeInOutCubic',
-        duration: 800,
-        autoplay: false
-    })
-    .add({
-        targets: '#loader',
-        opacity: 0,
-        duration: 1000,
-        begin: function(anim) {
-            window.scrollTo(0, 0);
-        }
-    })
-    .add({
-        targets: '#preloader',
-        opacity: 0,
-        complete: function(anim) {
-            document.querySelector("#preloader").style.visibility = "hidden";
-            document.querySelector("#preloader").style.display = "none";
-        }
-    })
-    .add({
-        targets: '.s-header',
-        translateY: [-100, 0],
-        opacity: [0, 1]
-    }, '-=200')
-    .add({
-        targets: [ '.s-intro .text-pretitle', '.s-intro .text-huge-title'],
-        translateX: [100, 0],
-        opacity: [0, 1],
-        delay: anime.stagger(400)
-    })
-    .add({
-        targets: '.circles span',
-        keyframes: [
-            {opacity: [0, .3]},
-            {opacity: [.5, .2], delay: anime.stagger(100, {direction: 'reverse'})}
-        ],
-        delay: anime.stagger(100, {direction: 'reverse'})
-    })
-    .add({
-        targets: '.intro-social li',
-        translateX: [-50, 0],
-        opacity: [0, 1],
-        delay: anime.stagger(100, {direction: 'reverse'})
-    })
-    .add({
-        targets: '.intro-scrolldown',
-        translateY: [100, 0],
-        opacity: [0, 1]
-    }, '-=800');
+  /* ---------- Theme toggle ---------- */
+  var toggle = document.getElementById("themeToggle");
 
+  function setTheme(theme) {
+    root.setAttribute("data-theme", theme);
+  try { localStorage.setItem("theme", theme); } catch (e) {}  }
 
-
-   /* Preloader
-    * -------------------------------------------------- */
-    const ssPreloader = function() {
-
-        const preloader = document.querySelector('#preloader');
-        if (!preloader) return;
-        
-        window.addEventListener('load', function() {
-            document.querySelector('html').classList.remove('ss-preload');
-            document.querySelector('html').classList.add('ss-loaded');
-
-            document.querySelectorAll('.ss-animated').forEach(function(item){
-                item.classList.remove('ss-animated');
-            });
-
-            tl.play();
-        });
-
-        // force page scroll position to top at page refresh
-        // window.addEventListener('beforeunload' , function () {
-        //     // window.scrollTo(0, 0);
-        // });
-
-    }; // end ssPreloader
-
-
-   /* Mobile Menu
-    * ---------------------------------------------------- */ 
-    const ssMobileMenu = function() {
-
-        const toggleButton = document.querySelector('.mobile-menu-toggle');
-        const mainNavWrap = document.querySelector('.main-nav-wrap');
-        const siteBody = document.querySelector("body");
-
-        if (!(toggleButton && mainNavWrap)) return;
-
-        toggleButton.addEventListener('click', function(event) {
-            event.preventDefault();
-            toggleButton.classList.toggle('is-clicked');
-            siteBody.classList.toggle('menu-is-open');
-        });
-
-        mainNavWrap.querySelectorAll('.main-nav a').forEach(function(link) {
-            link.addEventListener("click", function(event) {
-
-                // at 800px and below
-                if (window.matchMedia('(max-width: 800px)').matches) {
-                    toggleButton.classList.toggle('is-clicked');
-                    siteBody.classList.toggle('menu-is-open');
-                }
-            });
-        });
-
-        window.addEventListener('resize', function() {
-
-            // above 800px
-            if (window.matchMedia('(min-width: 801px)').matches) {
-                if (siteBody.classList.contains('menu-is-open')) siteBody.classList.remove('menu-is-open');
-                if (toggleButton.classList.contains("is-clicked")) toggleButton.classList.remove("is-clicked");
-            }
-        });
-
-    }; // end ssMobileMenu
-
-
-   /* Highlight active menu link on pagescroll
-    * ------------------------------------------------------ */
-    const ssScrollSpy = function() {
-
-        const sections = document.querySelectorAll(".target-section");
-
-        // Add an event listener listening for scroll
-        window.addEventListener("scroll", navHighlight);
-
-        function navHighlight() {
-        
-            // Get current scroll position
-            let scrollY = window.pageYOffset;
-        
-            // Loop through sections to get height(including padding and border), 
-            // top and ID values for each
-            sections.forEach(function(current) {
-                const sectionHeight = current.offsetHeight;
-                const sectionTop = current.offsetTop - 50;
-                const sectionId = current.getAttribute("id");
-            
-               /* If our current scroll position enters the space where current section 
-                * on screen is, add .current class to parent element(li) of the the corresponding 
-                * navigation link, else remove it. To know which link is active, we use 
-                * sectionId variable we are getting while looping through sections as 
-                * an selector
-                */
-                if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
-                    document.querySelector(".main-nav a[href*=" + sectionId + "]").parentNode.classList.add("current");
-                } else {
-                    document.querySelector(".main-nav a[href*=" + sectionId + "]").parentNode.classList.remove("current");
-                }
-            });
-        }
-
-    }; // end ssScrollSpy
-
-
-   /* Animate elements if in viewport
-    * ------------------------------------------------------ */
-    const ssViewAnimate = function() {
-
-        const blocks = document.querySelectorAll("[data-animate-block]");
-
-        window.addEventListener("scroll", viewportAnimation);
-
-        function viewportAnimation() {
-
-            let scrollY = window.pageYOffset;
-
-            blocks.forEach(function(current) {
-
-                const viewportHeight = window.innerHeight;
-                const triggerTop = (current.offsetTop + (viewportHeight * .2)) - viewportHeight;
-                const blockHeight = current.offsetHeight;
-                const blockSpace = triggerTop + blockHeight;
-                const inView = scrollY > triggerTop && scrollY <= blockSpace;
-                const isAnimated = current.classList.contains("ss-animated");
-
-                if (inView && (!isAnimated)) {
-                    anime({
-                        targets: current.querySelectorAll("[data-animate-el]"),
-                        opacity: [0, 1],
-                        translateY: [100, 0],
-                        delay: anime.stagger(400, {start: 200}),
-                        duration: 800,
-                        easing: 'easeInOutCubic',
-                        begin: function(anim) {
-                            current.classList.add("ss-animated");
-                        }
-                    });
-                }
-            });
-        }
-
-    }; // end ssViewAnimate
-
-
-   /* Swiper
-    * ------------------------------------------------------ */ 
-    const ssSwiper = function() {
-
-        const mySwiper = new Swiper('.swiper-container', {
-
-            slidesPerView: 1,
-            pagination: {
-                el: '.swiper-pagination',
-                clickable: true,
-            },
-            breakpoints: {
-                // when window width is > 400px
-                401: {
-                    slidesPerView: 1,
-                    spaceBetween: 20
-                },
-                // when window width is > 800px
-                801: {
-                    slidesPerView: 2,
-                    spaceBetween: 32
-                },
-                // when window width is > 1200px
-                1201: {
-                    slidesPerView: 2,
-                    spaceBetween: 80
-                }
-            }
-         });
-
-    }; // end ssSwiper
-
-
-   /* Lightbox
-    * ------------------------------------------------------ */
-    const ssLightbox = function() {
-
-        const folioLinks = document.querySelectorAll('.folio-list__item-link');
-        const modals = [];
-
-        folioLinks.forEach(function(link) {
-            let modalbox = link.getAttribute('href');
-            let instance = basicLightbox.create(
-                document.querySelector(modalbox),
-                {
-                    onShow: function(instance) {
-                        //detect Escape key press
-                        document.addEventListener("keydown", function(event) {
-                            event = event || window.event;
-                            if (event.keyCode === 27) {
-                                instance.close();
-                            }
-                        });
-                    }
-                }
-            )
-            modals.push(instance);
-        });
-
-        folioLinks.forEach(function(link, index) {
-            link.addEventListener("click", function(event) {
-                event.preventDefault();
-                modals[index].show();
-            });
-        });
-
-    };  // end ssLightbox
-
-
-   /* Alert boxes
-    * ------------------------------------------------------ */
-    const ssAlertBoxes = function() {
-
-        const boxes = document.querySelectorAll('.alert-box');
-  
-        boxes.forEach(function(box){
-
-            box.addEventListener('click', function(event) {
-                if (event.target.matches(".alert-box__close")) {
-                    event.stopPropagation();
-                    event.target.parentElement.classList.add("hideit");
-
-                    setTimeout(function(){
-                        box.style.display = "none";
-                    }, 500)
-                }    
-            });
-
-        })
-
-    }; // end ssAlertBoxes
-
-
-   /* Smoothscroll
-    * ------------------------------------------------------ */
-    const ssMoveTo = function() {
-
-    const easeFunctions = {
-        easeInQuad: function(t, b, c, d) {
-            t /= d;
-            return c * t * t + b;
-        },
-        easeOutQuad: function(t, b, c, d) {
-            t /= d;
-            return -c * t * (t - 2) + b;
-        },
-        easeInOutQuad: function(t, b, c, d) {
-            t /= d / 2;
-            if (t < 1) return c / 2 * t * t + b;
-            t--;
-            return -c / 2 * (t * (t - 2) - 1) + b;
-        },
-        easeInOutCubic: function(t, b, c, d) {
-            t /= d / 2;
-            if (t < 1) return c / 2 * t * t * t + b;
-            t -= 2;
-            return c / 2 * (t * t * t + 2) + b;
-        }
-    };
-
-    const triggers = document.querySelectorAll('.smoothscroll');
-    
-    const moveTo = new MoveTo({
-        tolerance: 0,
-        duration: 1200,
-        easing: 'easeInOutCubic',
-        container: window
-    }, easeFunctions);
-
-    // Update the script to include URL updates
-    triggers.forEach(function(trigger) {
-        trigger.addEventListener('click', function(event) {
-            event.preventDefault(); // Prevent default anchor jump
-
-            const targetId = trigger.getAttribute('href');
-            if (targetId.startsWith("#")) {
-                const targetSection = document.querySelector(targetId);
-
-                if (targetSection) {
-                    // Smooth scroll to the section
-                    moveTo.move(targetSection);
-
-                    // Update the URL without reloading
-                    history.pushState(null, null, targetId);
-                }
-            }
-        });
+  if (toggle) {
+    toggle.addEventListener("click", function () {
+      var current = root.getAttribute("data-theme");
+      setTheme(current === "dark" ? "light" : "dark");
     });
-}; // end ssMoveTo
+  }
 
-   /* Initialize
-    * ------------------------------------------------------ */
-    (function ssInit() {
+/* ---------- Headline typing ---------- */
+var headline = document.getElementById("headline");
+var letters = [];
 
-        ssPreloader();
-        ssMobileMenu();
-        ssScrollSpy();
-        ssViewAnimate();
-        ssSwiper();
-        ssLightbox();
-        ssAlertBoxes();
-        ssMoveTo();
+function prepareHeadline() {
+  if (!headline || prefersReducedMotion) return;
 
-    })();
+  // Full text for screen readers
+  var label = document.createElement("span");
+  label.className = "sr-only";
+  label.textContent = headline.textContent.replace(/\s+/g, " ").trim();
 
-})(document.documentElement);
+  // Split each word into letters (hidden until typed)
+  headline.querySelectorAll(".word").forEach(function (word) {
+    var text = word.textContent;
+    word.textContent = "";
+    word.setAttribute("aria-hidden", "true");
+    text.split("").forEach(function (ch) {
+      var span = document.createElement("span");
+      span.className = "ch";
+      span.textContent = ch;
+      word.appendChild(span);
+      letters.push(span);
+    });
+  });
+  headline.appendChild(label);
+}
+
+function startHeadline() {
+  if (!headline || !letters.length) return;
+  var i = 0;
+  var prev = null;
+
+  function typeNext() {
+    if (prev) prev.classList.remove("cur");
+    var el = letters[i];
+    el.classList.add("on", "cur");
+    prev = el;
+    i++;
+
+    if (i < letters.length) {
+      var newWord = letters[i].parentNode !== el.parentNode;
+      setTimeout(typeNext, newWord ? 220 : 70);   // pause between words / between letters
+    } else {
+      setTimeout(function () { el.classList.remove("cur"); }, 2500);  // cursor leaves after 2.5s
+    }
+  }
+
+  setTimeout(typeNext, 350);   // start just as the loader fades
+}
+
+prepareHeadline();
+
+/* ---------- Loader ---------- */
+var loader = document.getElementById("loader");
+if (loader && !prefersReducedMotion) {
+  requestAnimationFrame(function () {
+    setTimeout(function () {
+      loader.classList.add("done");
+      startHeadline();
+      setTimeout(function () {
+        if (loader.parentNode) loader.parentNode.removeChild(loader);
+      }, 600);
+    }, 750);
+  });
+} else if (loader) {
+  loader.classList.add("done");
+  startHeadline();
+  setTimeout(function () {
+    if (loader.parentNode) loader.parentNode.removeChild(loader);
+  }, 100);
+}
+
+  /* ---------- Mobile nav ---------- */
+  var burger = document.getElementById("navBurger");
+  var rail = document.getElementById("navRail");
+  var overlay = document.getElementById("navOverlay");
+  var closeBtn = document.getElementById("navClose");
+
+  function openNav() {
+    rail.classList.add("open");
+    overlay.classList.add("show");
+    burger.classList.add("hidden");
+    burger.setAttribute("aria-expanded", "true");
+  }
+
+  function closeNav() {
+    rail.classList.remove("open");
+    overlay.classList.remove("show");
+    burger.classList.remove("hidden");
+    burger.setAttribute("aria-expanded", "false");
+  }
+
+  if (burger) {
+    burger.addEventListener("click", openNav);
+  }
+  if (closeBtn) {
+    closeBtn.addEventListener("click", closeNav);
+  }
+  if (overlay) {
+    overlay.addEventListener("click", closeNav);
+  }
+
+  // Close nav when a link is clicked
+  if (rail) {
+    rail.querySelectorAll("a").forEach(function (link) {
+      link.addEventListener("click", closeNav);
+    });
+  }
+
+  /* ---------- Active nav highlighting ---------- */
+  var navLinks = document.querySelectorAll(".nav-list a");
+  var sections = [];
+  navLinks.forEach(function (link) {
+    var id = link.getAttribute("href").substring(1);
+    var el = document.getElementById(id);
+    if (el) sections.push(el);
+  });
+
+  if ("IntersectionObserver" in window && sections.length) {
+    var navObserver = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            navLinks.forEach(function (link) {
+              link.classList.remove("active");
+              if (link.getAttribute("href") === "#" + entry.target.id) {
+                link.classList.add("active");
+              }
+            });
+          }
+        });
+      },
+      { rootMargin: "-40% 0px -55% 0px" }
+    );
+    sections.forEach(function (sec) {
+      navObserver.observe(sec);
+    });
+  }
+
+  /* ---------- Scroll reveals ---------- */
+  var revealEls = document.querySelectorAll(".reveal");
+
+  if (prefersReducedMotion || !("IntersectionObserver" in window)) {
+    revealEls.forEach(function (el) {
+      el.classList.add("in-view");
+    });
+  } else {
+    var revealObserver = new IntersectionObserver(
+      function (entries, obs) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("in-view");
+            obs.unobserve(entry.target);
+          }
+        });
+      },
+      { rootMargin: "0px 0px -10% 0px", threshold: 0.05 }
+    );
+    revealEls.forEach(function (el) {
+      revealObserver.observe(el);
+    });
+  }
+
+  /* ---------- Stagger setup ---------- */
+  document.querySelectorAll("[data-stagger]").forEach(function (el) {
+    el.style.setProperty("--stagger", el.getAttribute("data-stagger"));
+  });
+
+  /* ---------- Copyright year ---------- */
+  var yearEl = document.getElementById("year");
+  if (yearEl) {
+    yearEl.textContent = new Date().getFullYear();
+  }
+})();
