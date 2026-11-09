@@ -155,6 +155,12 @@ main {
   margin-bottom: 40px;
 }
 
+.nav-identity,
+.nav-identity:hover,
+.nav-identity:focus {
+  text-decoration: none;
+}
+
 .nav-identity .nav-name {
   font-family: var(--font-head);
   font-size: 1.05rem;
