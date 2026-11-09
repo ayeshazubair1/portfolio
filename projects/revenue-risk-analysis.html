@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Customer Concentration &amp; Revenue Risk — Contoso</title>
+  <meta name="description" content="Examines customer concentration and engagement to assess revenue dependency and identify customer retention risks.">
+  <link rel="icon" href="../images/icons/favicon.svg" type="image/svg+xml">
+  <script>
+    (function () {
+      var saved = localStorage.getItem('theme');
+      var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      document.documentElement.setAttribute('data-theme', saved || (prefersDark ? 'dark' : 'light'));
+      document.documentElement.classList.add('js');
+    })();
+  </script>
+  </script>
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/project.css">
+</head>
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/project.css">
+</head>
+<body class="no-js">
+  <a href="#main" class="skip-link">Skip to content</a>
+
+  <div class="nav-overlay" id="navOverlay"></div>
+  <button class="nav-burger" id="navBurger" aria-label="Open navigation" aria-expanded="false">
+    <span></span>
+  </button>
+
+  <nav class="nav-rail" id="navRail" aria-label="Primary navigation">
+    <button class="mobile-close" id="navClose" aria-label="Close navigation">&times;</button>
+    <div class="nav-identity">
+      <a href="../index.html" style="text-decoration:none;color:inherit;">
+        <div class="nav-name">Ayesha Zubair</div>
+        <div class="nav-role">Data Analyst</div>
+      </a>
+    </div>
+    <ul class="nav-list">
+      <li><a href="../index.html#about"><span class="nav-num">01</span>About</a></li>
+      <li><a href="../index.html#work"><span class="nav-num">02</span>Recent Work</a></li>
+      <li><a href="../index.html#skills"><span class="nav-num">03</span>Skills</a></li>
+      <li><a href="../index.html#contact"><span class="nav-num">04</span>Contact</a></li>
+    </ul>
+    <div class="nav-spacer"></div>
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle color theme">
+      <span class="icon-wrap">
+        <svg class="sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+        <svg class="moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </span>
+      <span class="toggle-label">Theme</span>
+    </button>
+  </nav>
+
+  <main id="main" class="project-page">
+    <div class="app">
+
+      <div class="util-row">
+        <a href="../index.html#work" class="back-link" id="backLink">
+          <svg viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+          Back to Work
+        </a>
+        <a href="https://github.com/ayeshazubair1/customer-revenue-concentration" class="repo-btn" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+          View Repository
+        </a>
+      </div>
+
+      <button class="toc-toggle" id="tocToggle" aria-expanded="false">
+        <span>Contents</span>
+        <svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+      </button>
+      <div class="toc-mobile" id="tocMobile">
+        <ul class="toc-list" id="tocMobileList"></ul>
+      </div>
+
+      <div class="doc-layout">
+        <article class="doc-article">
+          <h1 class="proj-title">Customer Concentration &amp; Revenue Risk</h1>
+
+          <div class="proj-meta">
+            <div class="meta-item">
+              <span class="meta-value">Tools</span>
+              <span class="meta-label">PostgreSQL, Tableau</span>
+            </div>
+            <div class="meta-item">
+              <span class="meta-value">Duration</span>
+              <span class="meta-label">May 2026 - Jun 2026</span>
+            </div>
+          </div>
+
+            <h2 id="business-context">Business Context</h2>
+            <p>Contoso is a global retail company operating across 8 countries, with physical stores and an online store, offering multiple product categories.
+              Revenue grew from <strong>$88M in 2015</strong> to <strong>$444M in 2022</strong> before declining, raising concerns around customer retention and revenue concentration.
+              Leadership suspects that revenue may be heavily dependent on a relatively small group of high-value customers, creating potential exposure if these customers reduce engagement or churn.
+            </p>
+
+            <div class="highlight-callout">
+            <p><strong>The Challenge:</strong> Assess dependency on high-value customers, identify early disengagement signals, and quantify revenue exposed to potential churn.</p>
+            </div>
+
+
+            <h2 id="executive-summary">Executive Summary</h2>
+            <p>Contoso shows meaningful customer concentration risk, with its top 20% of customers generating <strong>43.5% of total revenue</strong> and <strong>44.26% of total profit</strong>.
+              Within this high-value segment, <strong>1,421 customers</strong> are classified as Declining, representing <strong>$78.7M in historical revenue exposure</strong> and <strong>$44.2M in associated profit</strong>.</p>
+            <p>The exposure is concentrated in a small number of channels and locations. The <strong>Online channel accounts for $27.1M</strong> across 1,420 at-risk customers, representing <strong>34.4% of total at-risk revenue</strong>.
+              A further <strong>$34.0M</strong> is concentrated across <strong>18 high-risk physical stores</strong>.</p>
+            <p>Customer segmentation also shows signs of weakening engagement: only <strong>26%</strong> of high-value customers are Consistent, while approximately <strong>49%</strong> are classified as Inactive.
+              These findings point to a need for targeted retention efforts focused on declining high-value customers, the Online channel, and high-risk physical stores.</p>
+
+            <h2 id="key-findings">Key Findings</h2>
+            <h3 id="1-nearly-half-of-contoso-s-revenue-flows-from-just-20-of-customers">1. Nearly Half of Contoso&#39;s Revenue Flows from Just 20% of Customers</h3>
+              <ul>
+              <li>The <strong>top 20% of customers contribute 43.5% of total revenue</strong> and <strong>44.26% of total profit</strong>. </li>
+              <li>Within that group, the top 10% alone account for more than a quarter of both revenue and profit.    </li>
+              <li>This level of concentration increases the business&#39;s exposure if high-value customers reduce spending or churn.</li>
+              </ul>
+
+              <figure>
+                <div class="chart-wrap">
+                  <svg viewBox="20 35 640 260" role="img" aria-labelledby="concentration-title concentration-desc">
+                    <title id="concentration-title">Share of total revenue by customer group</title>
+                    <desc id="concentration-desc">Vertical bar chart of customer concentration. The top 10% of customers generate 25.7% of revenue, the top 20% generate 43.5%, and the bottom 80% generate 56.5%.</desc>
+
+                    <!-- baseline -->
+                    <line x1="70" y1="260" x2="610" y2="260" stroke="var(--border-strong)" stroke-width="1"/>
+
+                    <!-- bars -->
+                    <g fill="var(--accent)">
+                      <rect x="130" y="180" width="90" height="80"  opacity="0.4"  rx="2"/>
+                      <rect x="295" y="124" width="90" height="136" opacity="0.55" rx="2"/>
+                      <rect x="460" y="83"  width="90" height="177" opacity="0.7"  rx="2"/>
+                    </g>
+
+                    <!-- value labels -->
+                    <g font-family="var(--font-mono)" font-size="12" fill="var(--text-muted)" text-anchor="middle">
+                      <text x="175" y="172">25.7%</text>
+                      <text x="340" y="116">43.5%</text>
+                      <text x="505" y="75">56.5%</text>
+                    </g>
+
+                    <!-- x-axis labels -->
+                    <g font-family="var(--font-body)" font-size="12" fill="var(--text-secondary)" text-anchor="middle">
+                      <text x="175" y="280">Top 10%</text>
+                      <text x="340" y="280">Top 20%</text>
+                      <text x="505" y="280">Bottom 80%</text>
+                    </g>
+                  </svg>
+                </div>
+                <figcaption>Customer concentration by revenue.</figcaption>
+              </figure>
+
+              <h3 id="2-within-the-top-20-engagement-is-fragmenting">2. Within the Top 20%, Engagement Is Fragmenting</h3>
+              <ul>
+              <li><strong>Only 26% of high-value customers show consistent engagement</strong>, while 49% are classified as Inactive. </li>
+              <li>The <strong>Declining segment</strong> (1,421 customers) has an average of 303 days since its last recorded purchase, despite historically healthy purchase frequency.</li>
+              <li>This suggests that revenue risk is emerging before customers are fully lost, creating an opportunity for targeted retention efforts.</li>
+              </ul>
+
+              <figure>
+                <div class="chart-wrap">
+                  <svg viewBox="100 20 640 230" role="img" aria-labelledby="segments-title segments-desc">
+                    <title id="segments-title">Revenue contribution across customer segments</title>
+                    <desc id="segments-desc">Horizontal bar chart of revenue by customer segment. Inactive leads at $411M, followed by consistent at $279M, stable at $154M and declining at $79M.</desc>
+
+                    <!-- vertical axis line -->
+                    <line x1="280" y1="40" x2="280" y2="230" stroke="var(--border-strong)" stroke-width="1"/>
+
+                    <!-- y-axis labels -->
+                    <g font-family="var(--font-body)" font-size="12" fill="var(--text-secondary)" text-anchor="end">
+                      <text x="270" y="68">Inactive</text>
+                      <text x="270" y="116">Consistent</text>
+                      <text x="270" y="164">Stable</text>
+                      <text x="270" y="212">Declining</text>
+                    </g>
+
+                    <!-- bars -->
+                    <g fill="var(--accent)">
+                      <rect x="280" y="50"  width="300" height="28" opacity="0.7"  rx="2"/>
+                      <rect x="280" y="98"  width="203" height="28" opacity="0.55" rx="2"/>
+                      <rect x="280" y="146" width="112" height="28" opacity="0.4"  rx="2"/>
+                      <rect x="280" y="194" width="58"  height="28" opacity="0.3"  rx="2"/>
+                    </g>
+
+                    <!-- value labels -->
+                    <g font-family="var(--font-mono)" font-size="12" fill="var(--text-muted)" text-anchor="start">
+                      <text x="588" y="68">$411M</text>
+                      <text x="491" y="116">$279M</text>
+                      <text x="400" y="164">$154M</text>
+                      <text x="346" y="212">$79M</text>
+                    </g>
+                  </svg>
+                </div>
+                <figcaption>Revenue contribution across customer segments.</figcaption>
+              </figure>
+
+              <h3 id="3-78-7m-in-historical-revenue-is-associated-with-declining-high-value-customers">3. $78.7M in Historical Revenue Is Associated with Declining High-Value Customers</h3>
+              <ul>
+              <li>The <strong>Declining segment represents $78.7M in historical revenue</strong> and <strong>$44.2M in associated profit</strong>, making it the priority segment for retention efforts. </li>
+              <li>In comparison, Inactive high-value customers account for $411M in historical revenue, highlighting the scale of historical customer value within this segment.</li>
+              <li>Prioritizing Declining customers creates an opportunity to investigate disengagement and address retention risks before they become more pronounced.</li>
+              </ul>
+
+              <h3 id="4-risk-is-concentrated-one-channel-dominates-revenue-exposure">4. Risk Is Concentrated — One Channel Dominates Revenue Exposure</h3>
+              <ul>
+              <li>The <strong>Online channel holds $27.1M at risk</strong> across 1,420 declining customers, representing <strong>34% of total at-risk revenue</strong>. </li>
+              <li>Eighteen high-risk physical stores contribute an additional <strong>$34M</strong>, but the exposure is distributed across locations rather than concentrated in a single channel. </li>
+              <li>Targeting the Online channel and high-risk stores is likely to produce a greater impact than broad company-wide retention initiatives.</li>
+              </ul>
+
+              <figure>
+                  <div class="chart-wrap">
+                    <svg viewBox="0 0 640 320" role="img" aria-labelledby="riskTree-title riskTree-desc">
+                      <title id="riskTree-title">Revenue at risk by store risk segment</title>
+                      <desc id="riskTree-desc">Treemap with box size proportional to revenue at risk. High: $34.0M across 18 stores. Critical: $27.1M, the online channel. Medium: $13.5M across 17 stores. Low: $4.2M across 34 stores.</desc>
+
+                      <!-- boxes -->
+                      <g fill="var(--accent)" stroke="var(--bg-elev)" stroke-width="3">
+                        <rect x="20"  y="20"  width="259" height="280" opacity="0.40" rx="2"/>
+                        <rect x="279" y="20"  width="341" height="169" opacity="0.60"  rx="2"/>
+                        <rect x="279" y="189" width="260" height="111" opacity="0.25" rx="2"/>
+                        <rect x="539" y="189" width="81"  height="111" opacity="0.15" rx="2"/>
+                      </g>
+
+                      <!-- labels -->
+                      <g font-family="var(--font-body)" font-size="12" fill="var(--text-secondary)">
+                        <text x="36"  y="46">High</text>
+                        <text x="295" y="46">Critical</text>
+                        <text x="295" y="214">Medium</text>
+                        <text x="551" y="214">Low</text>
+                      </g>
+
+                      <!-- values -->
+                      <g font-family="var(--font-mono)" font-size="14" fill="var(--text)">
+                        <text x="36"  y="70">$34.0M</text>
+                        <text x="295" y="70">$27.1M</text>
+                        <text x="295" y="238">$13.5M</text>
+                        <text x="551" y="238">$4.2M</text>
+                      </g>
+
+                      <!-- store counts -->
+                      <g font-family="var(--font-body)" font-size="11" fill="var(--text-secondary)">
+                        <text x="36"  y="88">18 stores</text>
+                        <text x="295" y="88">1 store (Online channel)</text>
+                        <text x="295" y="256">17 stores</text>
+                        <text x="551" y="256">34 stores</text>
+                      </g>
+                    </svg>
+                  </div>
+                  <figcaption>Revenue at risk by store risk segment.</figcaption>
+                </figure>
+
+            <h2 id="recommendations">Recommendations</h2>
+
+            <h3 id="1-retain-declining-high-value-customers-immediate-">1. Retain Declining High-Value Customers (Immediate)</h3>
+              <p><strong>Target Segment:</strong> 1,421 Declining customers ($78.7M revenue at risk)</p>
+              <ul>
+              <li>Prioritize customers with the longest inactivity periods</li>
+              <li>Personalize offers using historical purchase behavior</li>
+              <li>Collect feedback to identify drivers of disengagement</li>
+              </ul>
+
+              <h3 id="2-treat-online-channel-risk-critical-">2. Treat Online Channel Risk (Critical)</h3>
+              <p><strong>Target Area:</strong> Online channel ($27.1M at-risk revenue)</p>
+              <ul>
+              <li>Segment outreach by inactivity duration</li>
+              <li>Prioritize high-spend customers for direct intervention</li>
+              <li>Implement dedicated digital retention campaigns</li>
+              </ul>
+
+              <h3 id="3-activate-store-level-retention-in-high-risk-locations">3. Activate Store-Level Retention in High-Risk Locations</h3>
+              <p><strong>Target Area:</strong> 18 high-risk stores ($34M at-risk revenue)</p>
+              <ul>
+              <li>Provide store-level lists of at-risk customers to each store manager</li>
+              <li>Review purchase history for product availability issues</li>
+              <li>Track monthly customer reactivation and recovered revenue by store</li>
+              </ul>
+
+              <h3 id="4-raise-customer-concentration-risk-to-leadership">4. Raise Customer Concentration Risk to Leadership</h3>
+              <p><strong>Target Area:</strong> Customer concentration risk</p>
+              <ul>
+              <li>Establish monitoring thresholds for top-customer activity</li>
+              <li>Reduce long-term dependency through broader customer acquisition</li>
+              </ul>
+
+            <h2 id="limitations-assumptions">Limitations &amp; Assumptions</h2>
+            <ol>
+              <li><strong>Partial 2024 Data:</strong> Customer recency is measured against the latest sales record (April 20, 2024), limiting the assessment of engagement beyond this date.</li>
+              <li><strong>Churn Estimated from Behavior:</strong> At-risk customers were identified using recency and frequency patterns, not confirmed churn records.</li>
+              <li><strong>Multi-Currency Transactions:</strong> Revenue figures were calculated in transaction currency without USD normalization. Post-analysis validation found a 1.47% net difference, indicating limited currency-related impact on the overall findings.</li>
+              <li><strong>Threshold Benchmarks:</strong> All segmentation thresholds were derived from internal data distributions, as no external industry benchmarks were available.</li>
+              <li><strong>No External Context:</strong> The analysis identifies who is at risk and how much revenue is exposed, but cannot fully explain why customers are disengaging without feedback or market data.</li>
+              <li><strong>Synthetic Dataset:</strong> Contoso is a fictional dataset. Additional context such as loyalty history, customer feedback, or campaign data was unavailable.</li>
+            </ol>
+
+            <h2 id="other-resources">Other Resources</h2>
+            <a href="https://github.com/ayeshazubair1/customer-revenue-concentration/blob/main/technical_documentation.md" class="arrow-link" target="_blank" rel="noopener">
+              Technical Documentation
+              <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+
+          <div class="proj-footer">
+            <a href="profitability-growth-analysis.html">
+              <svg viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+              Previous Project
+            </a>
+            <a href="retail-shrinkage-analysis.html">
+              Next Project
+              <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+        </article>
+
+        <aside class="toc" aria-label="Table of contents">
+          <div class="toc-label">Contents</div>
+          <ul class="toc-list" id="tocList"></ul>
+        </aside>
+      </div>
+
+      <footer class="footer">
+        <div class="footer-row">
+          <span class="footer-copy">&copy; <span id="year">2026</span> Ayesha Zubair. All rights reserved.</span>
+        </div>
+      </footer>
+
+    </div>
+  </main>
+
+  <script src="../js/project.js" defer></script>
+</body>
+</html>
